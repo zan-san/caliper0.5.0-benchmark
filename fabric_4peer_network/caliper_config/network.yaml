@@ -1,0 +1,50 @@
+name: Caliper Benchmarks
+version: "2.0.0"
+
+caliper:
+  blockchain: fabric
+
+channels:
+  # channelName of mychannel matches the name of the channel created by test network
+  - channelName: app-channel
+    # the chaincodeIDs of all the fabric chaincodes in caliper-benchmarks
+    contracts:
+    - id: base
+
+
+organizations:
+  - mspid: Org1MSP
+    # Identities come from cryptogen created material for test-network
+    identities:
+      certificates:
+      - name: 'User1'
+        clientPrivateKey:
+          path: './crypto-config/peerOrganizations/org1.aaa.com/users/User1@org1.aaa.com/msp/keystore/priv_sk'
+        clientSignedCert:
+          path: './crypto-config/peerOrganizations/org1.aaa.com/users/User1@org1.aaa.com/msp/signcerts/User1@org1.aaa.com-cert.pem'
+    connectionProfile:
+      path: './crypto-config/peerOrganizations/org1.aaa.com/connection-org1.yaml'
+      discover: true
+
+peers:
+  - endpoint: peer0.org1.aaa.com:7051
+    grpcOptions:
+      ssl-target-name-override: peer0.org1.aaa.com
+      grpc.keepalive_time_ms: 600000
+    tlsCACerts:
+      pem: |-
+        -----BEGIN CERTIFICATE-----
+        MIICQTCCAeigAwIBAgIRAO9dJIPE24Ah+6rJgq/k/IkwCgYIKoZIzj0EAwIwazEL
+        MAkGA1UEBhMCVVMxEzARBgNVBAgTCkNhbGlmb3JuaWExFjAUBgNVBAcTDVNhbiBG
+        cmFuY2lzY28xFTATBgNVBAoTDG9yZzEuYWFhLmNvbTEYMBYGA1UEAxMPY2Eub3Jn
+        MS5hYWEuY29tMB4XDTIzMDYxODEwMjEwMFoXDTMzMDYxNTEwMjEwMFowazELMAkG
+        A1UEBhMCVVMxEzARBgNVBAgTCkNhbGlmb3JuaWExFjAUBgNVBAcTDVNhbiBGcmFu
+        Y2lzY28xFTATBgNVBAoTDG9yZzEuYWFhLmNvbTEYMBYGA1UEAxMPY2Eub3JnMS5h
+        YWEuY29tMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE5MlwA0G12CzO4j2o6yeo
+        TnkpPEBVv6h7L2/QiUCnIskSxVDpC+CVswkqU32eEaW6sg0+AJllrEmuyc/9NDua
+        FaNtMGswDgYDVR0PAQH/BAQDAgGmMB0GA1UdJQQWMBQGCCsGAQUFBwMCBggrBgEF
+        BQcDATAPBgNVHRMBAf8EBTADAQH/MCkGA1UdDgQiBCCjMYFyW52q0zSrlRYi90Jj
+        qhsT7A53Mgw2igIjTq+qaTAKBggqhkjOPQQDAgNHADBEAiBR3gsO/27nwYikgoYH
+        0Grv08McHkhATNP5o21rqDU6cwIgXVXY7DJR67xOc6foe29kbwIxyP3tNnh19h9D
+        CEugU5c=
+        -----END CERTIFICATE-----

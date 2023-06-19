@@ -1,0 +1,93 @@
+tps : &tps 1000
+total : &total 5000
+
+test:
+    name: basic-contract-benchmark
+    description: test benchmark
+    workers:
+      type: local
+      number: 1
+    rounds:
+      # - label: set
+      #   txNumber: *total
+      #   rateControl: 
+      #     type: fixed-rate
+      #     opts:
+      #       tps: *tps
+      #   workload:
+      #     module: benchmarks/set.js
+      #     arguments:
+      #       assets: 10
+      #       contractId: basic
+
+      # - label: get
+      #   txNumber: *total
+      #   rateControl: 
+      #     type: fixed-rate
+      #     opts:
+      #       tps: *tps
+      #   workload:
+      #     module: benchmarks/get.js
+      #     arguments:
+      #       assets: 10
+      #       contractId: basic
+
+      # - label: add
+      #   txNumber: *total
+      #   rateControl: 
+      #     type: fixed-rate
+      #     opts:
+      #       tps: *tps
+      #     # type: fixed-load
+      #     # opts:
+      #     #   transactionLoad: 2
+      #   workload:
+      #     module: benchmarks/add.js
+      #     arguments:
+      #       assets: 10
+      #       contractId: basic
+
+      # - label: mul
+      #   txNumber: *total
+      #   rateControl: 
+      #     type: fixed-rate
+      #     opts:
+      #       tps: *tps
+      #   workload:
+      #     module: benchmarks/mul.js
+      #     arguments:
+      #       assets: 10
+      #       contractId: basic
+
+      # - label: div
+      #   txNumber: *total
+      #   rateControl: 
+      #     type: fixed-rate
+      #     opts:
+      #       tps: *tps
+      #   workload:
+      #     module: benchmarks/div.js
+      #     arguments:
+      #       assets: 10
+      #       contractId: basic     
+
+      - label: fib
+        txNumber: *total
+        rateControl: 
+          type: fixed-rate
+          opts:
+            tps: *tps
+        workload:
+          module: benchmarks/fib.js
+          arguments:
+            assets: 10
+            contractId: basic
+
+
+monitors:
+  resource:
+  - module: docker
+    options:
+      interval: 5 
+      containers:
+      - all

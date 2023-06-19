@@ -1,0 +1,272 @@
+# 基于fabric-sample/test-network/configt/configtx.yaml，进行修改
+---
+################################################################################
+#   Section: Organizations
+#
+#   - 这部分定义不同组织身份，以供其他配置引用
+################################################################################
+Organizations:
+
+    # SampleOrg defines an MSP using the sampleconfig.  It should never be used
+    # in production but may be used as a template for other definitions
+    - &OrdererOrg # 排序组织
+        Name: OrdererOrg
+        ID: OrdererMSP
+        # MSPDir 文件路径指向msp文件夹
+        MSPDir: ./crypto-config/ordererOrganizations/aaa.com/msp
+        # 本层级策略。组织策略的话，规范路径为/Channel/<Application|Orderer>/<OrgName>/<PolicyName>
+        Policies:
+            Readers:
+                Type: Signature
+                Rule: "OR('OrdererMSP.member')"
+            Writers:
+                Type: Signature
+                Rule: "OR('OrdererMSP.member')"
+            Admins:
+                Type: Signature
+                Rule: "OR('OrdererMSP.admin')"
+        # 排序节点的端点
+        OrdererEndpoints: 
+            - orderer.aaa.com:7050
+        
+    - &Org1
+        Name: Org1MSP
+        ID: Org1MSP
+        MSPDir: ./crypto-config/peerOrganizations/org1.aaa.com/msp
+        Policies:
+            Readers:
+                Type: Signature
+                Rule: "OR('Org1MSP.member')"
+            Writers:
+                Type: Signature
+                Rule: "OR('Org1MSP.member')"
+            Admins:
+                Type: Signature
+                Rule: "OR('Org1MSP.admin')"
+            Endorsement:
+                Type: Signature
+                Rule: "OR('Org1MSP.member')"
+        # leave this flag set to true.
+        # 锚节点
+        AnchorPeers:
+            #组织间通信的锚节点。注意，该值在Application部分中仅在创世区块内编码
+            - Host: peer0.org1.aaa.com
+              Port: 7051
+
+    - &Org2
+        Name: Org2MSP
+        ID: Org2MSP
+        MSPDir: ./crypto-config/peerOrganizations/org2.aaa.com/msp
+        Policies:
+            Readers:
+                Type: Signature
+                Rule: "OR('Org2MSP.member')"
+            Writers:
+                Type: Signature
+                Rule: "OR('Org2MSP.member')"
+            Admins:
+                Type: Signature
+                Rule: "OR('Org2MSP.admin')"
+            Endorsement:
+                Type: Signature
+                Rule: "OR('Org2MSP.member')"
+        AnchorPeers:
+            - Host: peer0.org2.aaa.com
+              Port: 7061
+
+    - &Org3
+        Name: Org3MSP
+        ID: Org3MSP
+        MSPDir: ./crypto-config/peerOrganizations/org3.aaa.com/msp
+        Policies:
+            Readers:
+                Type: Signature
+                Rule: "OR('Org3MSP.member')"
+            Writers:
+                Type: Signature
+                Rule: "OR('Org3MSP.member')"
+            Admins:
+                Type: Signature
+                Rule: "OR('Org3MSP.admin')"
+            Endorsement:
+                Type: Signature
+                Rule: "OR('Org3MSP.member')"
+        AnchorPeers:
+            - Host: peer0.org3.aaa.com
+              Port: 7071
+
+    - &Org4
+        Name: Org4MSP
+        ID: Org4MSP
+        MSPDir: ./crypto-config/peerOrganizations/org4.aaa.com/msp
+        Policies:
+            Readers:
+                Type: Signature
+                Rule: "OR('Org4MSP.member')"
+            Writers:
+                Type: Signature
+                Rule: "OR('Org4MSP.member')"
+            Admins:
+                Type: Signature
+                Rule: "OR('Org4MSP.admin')"
+            Endorsement:
+                Type: Signature
+                Rule: "OR('Org4MSP.member')"
+        AnchorPeers:
+            - Host: peer0.org4.aaa.com
+              Port: 7081
+
+
+################################################################################
+#   SECTION: Capabilities
+#   
+#   暂时不需要了解
+################################################################################
+Capabilities:
+    Channel: &ChannelCapabilities
+        V2_0: true
+
+    Orderer: &OrdererCapabilities
+        V2_0: true
+
+    Application: &ApplicationCapabilities
+        V2_0: true
+
+################################################################################
+#   SECTION: Application
+#
+#   本节定义了要编码进配置事务或创世区块的应用相关参数
+################################################################################
+Application: &ApplicationDefaults
+    # 组织列表
+    Organizations:
+    # 对于application策略，规范为/Channel/Application/<PolicyName>
+    Policies:
+        Readers:
+            Type: ImplicitMeta
+            Rule: "ANY Readers"
+        Writers:
+            Type: ImplicitMeta
+            Rule: "ANY Writers"
+        Admins:
+            Type: ImplicitMeta
+            Rule: "MAJORITY Admins"
+        LifecycleEndorsement:
+            Type: ImplicitMeta
+            Rule: "MAJORITY Endorsement"
+        Endorsement:
+            Type: ImplicitMeta
+            Rule: "MAJORITY Endorsement"
+    Capabilities:
+        <<: *ApplicationCapabilities
+################################################################################
+#   SECTION: Orderer
+#
+#   本节定义了要编码进配置事务或创世区块的排序节点相关参数
+################################################################################
+Orderer: &OrdererDefaults
+    # 共识类型
+    OrdererType: etcdraft
+    EtcdRaft:
+        Consenters:
+        - Host: orderer.aaa.com
+          Port: 7050
+          ClientTLSCert: ./crypto-config/ordererOrganizations/aaa.com/orderers/orderer.aaa.com/tls/server.crt
+          ServerTLSCert: ./crypto-config/ordererOrganizations/aaa.com/orderers/orderer.aaa.com/tls/server.crt
+    # 客户端和peer节点可以连接到排序节点的地址。但这不允许客户端和排序节点的地址关联以及排序
+    # 组织的TLS验证。更好的方法是在组织定义里写OrdererEndpoints
+    Addresses:
+        - orderer.aaa.com:7050
+    # Batch Timeout: The amount of time to wait before creating a batch
+    BatchTimeout: 2s
+    # Batch Size: Controls the number of messages batched into a block
+    BatchSize:
+        # Max Message Count: The maximum number of messages to permit in a batch
+        MaxMessageCount: 10
+        # Absolute Max Bytes: The absolute maximum number of bytes allowed for
+        # the serialized messages in a batch.
+        AbsoluteMaxBytes: 99 MB
+        # Preferred Max Bytes: The preferred maximum number of bytes allowed for
+        # the serialized messages in a batch. A message larger than the preferred
+        # max bytes will result in a batch larger than preferred max bytes.
+        PreferredMaxBytes: 512 KB
+    # Organizations is the list of orgs which are defined as participants on
+    # the orderer side of the network
+    Organizations:
+    # Policies defines the set of policies at this level of the config tree
+    # For Orderer policies, their canonical path is
+    #   /Channel/Orderer/<PolicyName>
+    Policies:
+        Readers:
+            Type: ImplicitMeta
+            Rule: "ANY Readers"
+        Writers:
+            Type: ImplicitMeta
+            Rule: "ANY Writers"
+        Admins:
+            Type: ImplicitMeta
+            Rule: "MAJORITY Admins"
+        # BlockValidation specifies what signatures must be included in the block
+        # from the orderer for the peer to validate it.
+        BlockValidation:
+            Type: ImplicitMeta
+            Rule: "ANY Writers"
+
+################################################################################
+#   CHANNEL
+#
+#   本节定义了要编码进配置事务或创世区块的通道相关参数
+################################################################################
+Channel: &ChannelDefaults
+    # 格式为/Channel/<PolicyName>
+    Policies:
+        # Who may invoke the 'Deliver' API
+        Readers:
+            Type: ImplicitMeta
+            Rule: "ANY Readers"
+        # Who may invoke the 'Broadcast' API
+        Writers:
+            Type: ImplicitMeta
+            Rule: "ANY Writers"
+        # By default, who may modify elements at this config level
+        Admins:
+            Type: ImplicitMeta
+            Rule: "MAJORITY Admins"
+    Capabilities:
+        <<: *ChannelCapabilities
+
+################################################################################
+#   Profile
+#
+#   各种事务的配置，给configtxgen调用
+################################################################################
+Profiles:
+    OrgsOrdererGenesis:
+        <<: *ChannelDefaults
+        Orderer:
+            <<: *OrdererDefaults
+            Organizations:
+                - *OrdererOrg
+            Capabilities:
+                <<: *OrdererCapabilities
+        Consortiums:
+            SampleConsortium:
+                Organizations:
+                    - *Org1
+                    - *Org2
+                    - *Org3
+                    - *Org4
+    OrgsChannel:
+        Consortium: SampleConsortium
+        <<: *ChannelDefaults
+        Application:
+            <<: *ApplicationDefaults
+            Organizations:
+                - *Org1
+                - *Org2
+                - *Org3
+                - *Org4
+            Capabilities:
+                <<: *ApplicationCapabilities
+
+

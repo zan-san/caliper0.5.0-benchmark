@@ -1,0 +1,35 @@
+OrdererOrgs:
+  - Name: Orderer
+    Domain: aaa.com
+    EnableNodeOUs: false
+    Specs:
+      - Hostname: orderer
+PeerOrgs:
+  - Name: Org1
+    Domain: org1.aaa.com
+    EnableNodeOUs: false
+    Template:
+      Count: 1
+    Users:
+      Count: 1
+  - Name: Org2
+    Domain: org2.aaa.com
+    EnableNodeOUs: false
+    Template:
+      Count: 1
+    Users:
+      Count: 1
+  - Name: Org3
+    Domain: org3.aaa.com
+    EnableNodeOUs: false
+    Template:
+      Count: 1
+    Users:
+      Count: 1
+  - Name: Org4
+    Domain: org4.aaa.com
+    EnableNodeOUs: false
+    Template:
+      Count: 1
+    Users:
+      Count: 1
