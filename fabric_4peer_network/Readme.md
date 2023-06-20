@@ -30,3 +30,10 @@ execute command
 ```
 docker exec -it cli bash
 ```
+npx caliper launch manager \
+--caliper-workspace fabric_4peer_network \
+--caliper-benchconfig caliper_config/config.yaml \
+--caliper-networkconfig caliper_config/network.yaml \
+--caliper-fabric-gateway-enabled \
+--caliper-fabric-gateway-discovery \
+--caliper-flow-only-test 

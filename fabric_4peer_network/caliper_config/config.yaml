@@ -8,17 +8,17 @@ test:
       type: local
       number: 1
     rounds:
-      # - label: set
-      #   txNumber: *total
-      #   rateControl: 
-      #     type: fixed-rate
-      #     opts:
-      #       tps: *tps
-      #   workload:
-      #     module: benchmarks/set.js
-      #     arguments:
-      #       assets: 10
-      #       contractId: basic
+      - label: set
+        txNumber: *total
+        rateControl: 
+          type: fixed-rate
+          opts:
+            tps: *tps
+        workload:
+          module: caliper_config/set.js
+          arguments:
+            assets: 10
+            contractId: base
 
       # - label: get
       #   txNumber: *total
@@ -71,23 +71,22 @@ test:
       #       assets: 10
       #       contractId: basic     
 
-      - label: fib
-        txNumber: *total
-        rateControl: 
-          type: fixed-rate
-          opts:
-            tps: *tps
-        workload:
-          module: benchmarks/fib.js
-          arguments:
-            assets: 10
-            contractId: basic
-
+      # - label: fib
+      #   txNumber: *total
+      #   rateControl: 
+      #     type: fixed-rate
+      #     opts:
+      #       tps: *tps
+      #   workload:
+      #     module: caliper_config/fib.js
+      #     arguments:
+      #       assets: 10
+      #       contractId: base
 
 monitors:
   resource:
   - module: docker
     options:
-      interval: 5 
+      interval: 5
       containers:
       - all

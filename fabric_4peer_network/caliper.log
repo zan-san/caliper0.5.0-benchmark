@@ -1,0 +1,9 @@
+2023.06.20-09:46:51.003[90m debug[39m [caliper] [rateControl.js] 	Constructed a winston logger with the specified settings
+2023.06.20-09:46:51.224[32m info [39m [caliper] [cli-launch-manager] 	Set workspace path: /home/a/caliper0.4.2-benchmark/fabric_4peer_network
+2023.06.20-09:46:51.225[32m info [39m [caliper] [cli-launch-manager] 	Set benchmark configuration path: /home/a/caliper0.4.2-benchmark/fabric_4peer_network/caliper_config/config.yaml
+2023.06.20-09:46:51.225[32m info [39m [caliper] [cli-launch-manager] 	Set network configuration path: /home/a/caliper0.4.2-benchmark/fabric_4peer_network/caliper_config/network.yaml
+2023.06.20-09:46:51.225[32m info [39m [caliper] [cli-launch-manager] 	Set SUT type: fabric
+2023.06.20-09:46:51.372[32m info [39m [caliper] [benchmark-validator] 	No observer specified, will default to `none`
+2023.06.20-09:46:51.372[32m info [39m [caliper] [caliper-engine] 	Starting benchmark flow
+2023.06.20-09:46:52.216[32m info [39m [caliper] [fabric-connector] 	Initializing standard connector compatible with installed SDK: 1.4.14
+2023.06.20-09:46:53.901[32m info [39m [caliper] [IdentityManager] 	Adding User1 (admin=false) as User1 for organization Org1MSP
