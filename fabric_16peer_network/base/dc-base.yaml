@@ -1,0 +1,456 @@
+version: '2'
+
+services:
+  # 名称和cryptogen中产生的一样
+  orderer.aaa.com:
+    container_name: orderer.aaa.com
+    image: hyperledger/fabric-orderer:2.2
+    environment:
+    #  - FABRIC_LOGGING_SPEC=DEBUG
+      - ORDERER_GENERAL_LOGLEVEL=debug
+      - ORDERER_GENERAL_LISTENADDRESS=0.0.0.0
+      - ORDERER_GENERAL_GENESISMETHOD=file
+      - ORDERER_GENERAL_GENESISFILE=/var/hyperledger/orderer/orderer.genesis.block
+      - ORDERER_GENERAL_LOCALMSPID=OrdererMSP
+      - ORDERER_GENERAL_LOCALMSPDIR=/var/hyperledger/orderer/msp
+      # enabled TLS
+      - ORDERER_GENERAL_TLS_ENABLED=true
+      - ORDERER_GENERAL_TLS_PRIVATEKEY=/var/hyperledger/orderer/tls/server.key
+      - ORDERER_GENERAL_TLS_CERTIFICATE=/var/hyperledger/orderer/tls/server.crt
+      - ORDERER_GENERAL_TLS_ROOTCAS=[/var/hyperledger/orderer/tls/ca.crt]
+      - ORDERER_GENERAL_CLUSTER_CLIENTCERTIFICATE=/var/hyperledger/orderer/tls/server.crt
+      - ORDERER_GENERAL_CLUSTER_CLIENTPRIVATEKEY=/var/hyperledger/orderer/tls/server.key
+      - ORDERER_GENERAL_CLUSTER_ROOTCAS=[/var/hyperledger/orderer/tls/ca.crt]
+    working_dir: /opt/gopath/src/github.com/hyperledger/fabric
+    volumes:
+    - ../system-genesis-block/genesis.block:/var/hyperledger/orderer/orderer.genesis.block
+    - ../crypto-config/ordererOrganizations/aaa.com/orderers/orderer.aaa.com/msp:/var/hyperledger/orderer/msp
+    - ../crypto-config/ordererOrganizations/aaa.com/orderers/orderer.aaa.com/tls/:/var/hyperledger/orderer/tls
+    ports:
+      - 7050:7050
+    command: orderer
+
+  peer0.org1.aaa.com:
+    container_name: peer0.org1.aaa.com
+    extends:
+      file: peer-base.yaml
+      service: peer-base
+    environment:
+      # Peer specific variabes
+      - CORE_PEER_ID=peer0.org1.aaa.com
+      - CORE_PEER_ADDRESS=peer0.org1.aaa.com:7051
+      - CORE_PEER_LISTENADDRESS=0.0.0.0:7051
+      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.org1.aaa.com:7051
+      - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.org1.aaa.com:7051      
+      - CORE_PEER_LOCALMSPID=Org1MSP
+      - CORE_PEER_CHAINCODEADDRESS=peer0.org1.aaa.com:7052
+      - CORE_PEER_CHAINCODELISTENADDRESS=0.0.0.0:7052
+    volumes:
+        - /var/run/:/host/var/run/
+        - ../crypto-config/peerOrganizations/org1.aaa.com/peers/peer0.org1.aaa.com/msp:/etc/hyperledger/fabric/msp
+        - ../crypto-config/peerOrganizations/org1.aaa.com/peers/peer0.org1.aaa.com/tls:/etc/hyperledger/fabric/tls
+    ports:
+      - 7051:7051
+      - 7052:7052 
+    command: peer node start
+
+  peer0.org2.aaa.com:
+    container_name: peer0.org2.aaa.com
+    extends:
+      file: peer-base.yaml
+      service: peer-base
+    environment:
+      # Peer specific variabes
+      - CORE_PEER_ID=peer0.org2.aaa.com
+      - CORE_PEER_ADDRESS=peer0.org2.aaa.com:7061
+      - CORE_PEER_LISTENADDRESS=0.0.0.0:7061
+      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.org2.aaa.com:7061
+      - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.org2.aaa.com:7061      
+      - CORE_PEER_LOCALMSPID=Org2MSP
+      - CORE_PEER_CHAINCODEADDRESS=peer0.org2.aaa.com:7062
+      - CORE_PEER_CHAINCODELISTENADDRESS=0.0.0.0:7062
+    volumes:
+        - /var/run/:/host/var/run/
+        - ../crypto-config/peerOrganizations/org2.aaa.com/peers/peer0.org2.aaa.com/msp:/etc/hyperledger/fabric/msp
+        - ../crypto-config/peerOrganizations/org2.aaa.com/peers/peer0.org2.aaa.com/tls:/etc/hyperledger/fabric/tls
+    ports:
+      - 7061:7061
+      - 7062:7062
+    command: peer node start
+
+  peer0.org3.aaa.com:
+    container_name: peer0.org3.aaa.com
+    extends:
+      file: peer-base.yaml
+      service: peer-base
+    environment:
+      # Peer specific variabes
+      - CORE_PEER_ID=peer0.org3.aaa.com
+      - CORE_PEER_ADDRESS=peer0.org3.aaa.com:7071
+      - CORE_PEER_LISTENADDRESS=0.0.0.0:7071
+      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.org3.aaa.com:7071
+      - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.org3.aaa.com:7071      
+      - CORE_PEER_LOCALMSPID=Org3MSP
+      - CORE_PEER_CHAINCODEADDRESS=peer0.org3.aaa.com:7072
+      - CORE_PEER_CHAINCODELISTENADDRESS=0.0.0.0:7072
+    volumes:
+        - /var/run/:/host/var/run/
+        - ../crypto-config/peerOrganizations/org3.aaa.com/peers/peer0.org3.aaa.com/msp:/etc/hyperledger/fabric/msp
+        - ../crypto-config/peerOrganizations/org3.aaa.com/peers/peer0.org3.aaa.com/tls:/etc/hyperledger/fabric/tls
+    ports:
+      - 7071:7071
+      - 7072:7072
+    command: peer node start
+
+  peer0.org4.aaa.com:
+    container_name: peer0.org4.aaa.com
+    extends:
+      file: peer-base.yaml
+      service: peer-base
+    environment:
+      # Peer specific variabes
+      - CORE_PEER_ID=peer0.org4.aaa.com
+      - CORE_PEER_ADDRESS=peer0.org4.aaa.com:7081
+      - CORE_PEER_LISTENADDRESS=0.0.0.0:7081
+      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.org4.aaa.com:7081
+      - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.org4.aaa.com:7081      
+      - CORE_PEER_LOCALMSPID=Org4MSP
+      - CORE_PEER_CHAINCODEADDRESS=peer0.org4.aaa.com:7082
+      - CORE_PEER_CHAINCODELISTENADDRESS=0.0.0.0:7082
+    volumes:
+        - /var/run/:/host/var/run/
+        - ../crypto-config/peerOrganizations/org4.aaa.com/peers/peer0.org4.aaa.com/msp:/etc/hyperledger/fabric/msp
+        - ../crypto-config/peerOrganizations/org4.aaa.com/peers/peer0.org4.aaa.com/tls:/etc/hyperledger/fabric/tls
+    ports:
+      - 7081:7081
+      - 7082:7082
+    command: peer node start
+
+  peer0.org5.aaa.com:
+    container_name: peer0.org5.aaa.com
+    extends:
+      file: peer-base.yaml
+      service: peer-base
+    environment:
+      # Peer specific variables
+      - CORE_PEER_ID=peer0.org5.aaa.com
+      - CORE_PEER_ADDRESS=peer0.org5.aaa.com:7091
+      - CORE_PEER_LISTENADDRESS=0.0.0.0:7091
+      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.org5.aaa.com:7091
+      - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.org5.aaa.com:7091
+      - CORE_PEER_LOCALMSPID=Org5MSP
+      - CORE_PEER_CHAINCODEADDRESS=peer0.org5.aaa.com:7092
+      - CORE_PEER_CHAINCODELISTENADDRESS=0.0.0.0:7092
+    volumes:
+      - /var/run/:/host/var/run/
+      - ../crypto-config/peerOrganizations/org5.aaa.com/peers/peer0.org5.aaa.com/msp:/etc/hyperledger/fabric/msp
+      - ../crypto-config/peerOrganizations/org5.aaa.com/peers/peer0.org5.aaa.com/tls:/etc/hyperledger/fabric/tls
+    ports:
+      - 7091:7091
+      - 7092:7092
+    command: peer node start
+
+  peer0.org6.aaa.com:
+    container_name: peer0.org6.aaa.com
+    extends:
+      file: peer-base.yaml
+      service: peer-base
+    environment:
+      # Peer specific variables
+      - CORE_PEER_ID=peer0.org6.aaa.com
+      - CORE_PEER_ADDRESS=peer0.org6.aaa.com:7101
+      - CORE_PEER_LISTENADDRESS=0.0.0.0:7101
+      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.org6.aaa.com:7101
+      - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.org6.aaa.com:7101
+      - CORE_PEER_LOCALMSPID=Org6MSP
+      - CORE_PEER_CHAINCODEADDRESS=peer0.org6.aaa.com:7102
+      - CORE_PEER_CHAINCODELISTENADDRESS=0.0.0.0:7102
+    volumes:
+      - /var/run/:/host/var/run/
+      - ../crypto-config/peerOrganizations/org6.aaa.com/peers/peer0.org6.aaa.com/msp:/etc/hyperledger/fabric/msp
+      - ../crypto-config/peerOrganizations/org6.aaa.com/peers/peer0.org6.aaa.com/tls:/etc/hyperledger/fabric/tls
+    ports:
+      - 7101:7101
+      - 7102:7102
+    command: peer node start
+
+  peer0.org7.aaa.com:
+    container_name: peer0.org7.aaa.com
+    extends:
+      file: peer-base.yaml
+      service: peer-base
+    environment:
+      # Peer specific variables
+      - CORE_PEER_ID=peer0.org7.aaa.com
+      - CORE_PEER_ADDRESS=peer0.org7.aaa.com:7111
+      - CORE_PEER_LISTENADDRESS=0.0.0.0:7111
+      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.org7.aaa.com:7111
+      - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.org7.aaa.com:7111
+      - CORE_PEER_LOCALMSPID=Org7MSP
+      - CORE_PEER_CHAINCODEADDRESS=peer0.org7.aaa.com:7112
+      - CORE_PEER_CHAINCODELISTENADDRESS=0.0.0.0:7112
+    volumes:
+      - /var/run/:/host/var/run/
+      - ../crypto-config/peerOrganizations/org7.aaa.com/peers/peer0.org7.aaa.com/msp:/etc/hyperledger/fabric/msp
+      - ../crypto-config/peerOrganizations/org7.aaa.com/peers/peer0.org7.aaa.com/tls:/etc/hyperledger/fabric/tls
+    ports:
+      - 7111:7111
+      - 7112:7112
+    command: peer node start
+
+  peer0.org8.aaa.com:
+    container_name: peer0.org8.aaa.com
+    extends:
+      file: peer-base.yaml
+      service: peer-base
+    environment:
+      # Peer specific variables
+      - CORE_PEER_ID=peer0.org8.aaa.com
+      - CORE_PEER_ADDRESS=peer0.org8.aaa.com:7121
+      - CORE_PEER_LISTENADDRESS=0.0.0.0:7121
+      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.org8.aaa.com:7121
+      - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.org8.aaa.com:7121
+      - CORE_PEER_LOCALMSPID=Org8MSP
+      - CORE_PEER_CHAINCODEADDRESS=peer0.org8.aaa.com:7122
+      - CORE_PEER_CHAINCODELISTENADDRESS=0.0.0.0:7122
+    volumes:
+      - /var/run/:/host/var/run/
+      - ../crypto-config/peerOrganizations/org8.aaa.com/peers/peer0.org8.aaa.com/msp:/etc/hyperledger/fabric/msp
+      - ../crypto-config/peerOrganizations/org8.aaa.com/peers/peer0.org8.aaa.com/tls:/etc/hyperledger/fabric/tls
+    ports:
+      - 7121:7121
+      - 7122:7122
+    command: peer node start
+
+  peer0.org9.aaa.com:
+    container_name: peer0.org9.aaa.com
+    extends:
+      file: peer-base.yaml
+      service: peer-base
+    environment:
+      # Peer specific variables
+      - CORE_PEER_ID=peer0.org9.aaa.com
+      - CORE_PEER_ADDRESS=peer0.org9.aaa.com:7131
+      - CORE_PEER_LISTENADDRESS=0.0.0.0:7131
+      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.org9.aaa.com:7131
+      - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.org9.aaa.com:7131
+      - CORE_PEER_LOCALMSPID=Org9MSP
+      - CORE_PEER_CHAINCODEADDRESS=peer0.org9.aaa.com:7132
+      - CORE_PEER_CHAINCODELISTENADDRESS=0.0.0.0:7132
+    volumes:
+      - /var/run/:/host/var/run/
+      - ../crypto-config/peerOrganizations/org9.aaa.com/peers/peer0.org9.aaa.com/msp:/etc/hyperledger/fabric/msp
+      - ../crypto-config/peerOrganizations/org9.aaa.com/peers/peer0.org9.aaa.com/tls:/etc/hyperledger/fabric/tls
+    ports:
+      - 7131:7131
+      - 7132:7132
+    command: peer node start
+
+  peer0.org10.aaa.com:
+    container_name: peer0.org10.aaa.com
+    extends:
+      file: peer-base.yaml
+      service: peer-base
+    environment:
+      # Peer specific variables
+      - CORE_PEER_ID=peer0.org10.aaa.com
+      - CORE_PEER_ADDRESS=peer0.org10.aaa.com:7141
+      - CORE_PEER_LISTENADDRESS=0.0.0.0:7141
+      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.org10.aaa.com:7141
+      - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.org10.aaa.com:7141
+      - CORE_PEER_LOCALMSPID=Org10MSP
+      - CORE_PEER_CHAINCODEADDRESS=peer0.org10.aaa.com:7142
+      - CORE_PEER_CHAINCODELISTENADDRESS=0.0.0.0:7142
+    volumes:
+      - /var/run/:/host/var/run/
+      - ../crypto-config/peerOrganizations/org10.aaa.com/peers/peer0.org10.aaa.com/msp:/etc/hyperledger/fabric/msp
+      - ../crypto-config/peerOrganizations/org10.aaa.com/peers/peer0.org10.aaa.com/tls:/etc/hyperledger/fabric/tls
+    ports:
+      - 7141:7141
+      - 7142:7142
+    command: peer node start
+
+  peer0.org11.aaa.com:
+    container_name: peer0.org11.aaa.com
+    extends:
+      file: peer-base.yaml
+      service: peer-base
+    environment:
+      # Peer specific variables
+      - CORE_PEER_ID=peer0.org11.aaa.com
+      - CORE_PEER_ADDRESS=peer0.org11.aaa.com:7151
+      - CORE_PEER_LISTENADDRESS=0.0.0.0:7151
+      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.org11.aaa.com:7151
+      - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.org11.aaa.com:7151
+      - CORE_PEER_LOCALMSPID=Org11MSP
+      - CORE_PEER_CHAINCODEADDRESS=peer0.org11.aaa.com:7152
+      - CORE_PEER_CHAINCODELISTENADDRESS=0.0.0.0:7152
+    volumes:
+      - /var/run/:/host/var/run/
+      - ../crypto-config/peerOrganizations/org11.aaa.com/peers/peer0.org11.aaa.com/msp:/etc/hyperledger/fabric/msp
+      - ../crypto-config/peerOrganizations/org11.aaa.com/peers/peer0.org11.aaa.com/tls:/etc/hyperledger/fabric/tls
+    ports:
+      - 7151:7151
+      - 7152:7152
+    command: peer node start
+
+  peer0.org12.aaa.com:
+    container_name: peer0.org12.aaa.com
+    extends:
+      file: peer-base.yaml
+      service: peer-base
+    environment:
+      # Peer specific variables
+      - CORE_PEER_ID=peer0.org12.aaa.com
+      - CORE_PEER_ADDRESS=peer0.org12.aaa.com:7161
+      - CORE_PEER_LISTENADDRESS=0.0.0.0:7161
+      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.org12.aaa.com:7161
+      - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.org12.aaa.com:7161
+      - CORE_PEER_LOCALMSPID=Org12MSP
+      - CORE_PEER_CHAINCODEADDRESS=peer0.org12.aaa.com:7162
+      - CORE_PEER_CHAINCODELISTENADDRESS=0.0.0.0:7162
+    volumes:
+      - /var/run/:/host/var/run/
+      - ../crypto-config/peerOrganizations/org12.aaa.com/peers/peer0.org12.aaa.com/msp:/etc/hyperledger/fabric/msp
+      - ../crypto-config/peerOrganizations/org12.aaa.com/peers/peer0.org12.aaa.com/tls:/etc/hyperledger/fabric/tls
+    ports:
+      - 7161:7161
+      - 7162:7162
+    command: peer node start
+
+  peer0.org13.aaa.com:
+    container_name: peer0.org13.aaa.com
+    extends:
+      file: peer-base.yaml
+      service: peer-base
+    environment:
+      # Peer specific variables
+      - CORE_PEER_ID=peer0.org13.aaa.com
+      - CORE_PEER_ADDRESS=peer0.org13.aaa.com:7171
+      - CORE_PEER_LISTENADDRESS=0.0.0.0:7171
+      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.org13.aaa.com:7171
+      - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.org13.aaa.com:7171
+      - CORE_PEER_LOCALMSPID=Org13MSP
+      - CORE_PEER_CHAINCODEADDRESS=peer0.org13.aaa.com:7172
+      - CORE_PEER_CHAINCODELISTENADDRESS=0.0.0.0:7172
+    volumes:
+      - /var/run/:/host/var/run/
+      - ../crypto-config/peerOrganizations/org13.aaa.com/peers/peer0.org13.aaa.com/msp:/etc/hyperledger/fabric/msp
+      - ../crypto-config/peerOrganizations/org13.aaa.com/peers/peer0.org13.aaa.com/tls:/etc/hyperledger/fabric/tls
+    ports:
+      - 7171:7171
+      - 7172:7172
+    command: peer node start
+
+  peer0.org14.aaa.com:
+    container_name: peer0.org14.aaa.com
+    extends:
+      file: peer-base.yaml
+      service: peer-base
+    environment:
+      # Peer specific variables
+      - CORE_PEER_ID=peer0.org14.aaa.com
+      - CORE_PEER_ADDRESS=peer0.org14.aaa.com:7181
+      - CORE_PEER_LISTENADDRESS=0.0.0.0:7181
+      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.org14.aaa.com:7181
+      - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.org14.aaa.com:7181
+      - CORE_PEER_LOCALMSPID=Org14MSP
+      - CORE_PEER_CHAINCODEADDRESS=peer0.org14.aaa.com:7182
+      - CORE_PEER_CHAINCODELISTENADDRESS=0.0.0.0:7182
+    volumes:
+      - /var/run/:/host/var/run/
+      - ../crypto-config/peerOrganizations/org14.aaa.com/peers/peer0.org14.aaa.com/msp:/etc/hyperledger/fabric/msp
+      - ../crypto-config/peerOrganizations/org14.aaa.com/peers/peer0.org14.aaa.com/tls:/etc/hyperledger/fabric/tls
+    ports:
+      - 7181:7181
+      - 7182:7182
+    command: peer node start
+
+  peer0.org15.aaa.com:
+    container_name: peer0.org15.aaa.com
+    extends:
+      file: peer-base.yaml
+      service: peer-base
+    environment:
+      # Peer specific variables
+      - CORE_PEER_ID=peer0.org15.aaa.com
+      - CORE_PEER_ADDRESS=peer0.org15.aaa.com:7191
+      - CORE_PEER_LISTENADDRESS=0.0.0.0:7191
+      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.org15.aaa.com:7191
+      - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.org15.aaa.com:7191
+      - CORE_PEER_LOCALMSPID=Org15MSP
+      - CORE_PEER_CHAINCODEADDRESS=peer0.org15.aaa.com:7192
+      - CORE_PEER_CHAINCODELISTENADDRESS=0.0.0.0:7192
+    volumes:
+      - /var/run/:/host/var/run/
+      - ../crypto-config/peerOrganizations/org15.aaa.com/peers/peer0.org15.aaa.com/msp:/etc/hyperledger/fabric/msp
+      - ../crypto-config/peerOrganizations/org15.aaa.com/peers/peer0.org15.aaa.com/tls:/etc/hyperledger/fabric/tls
+    ports:
+      - 7191:7191
+      - 7192:7192
+    command: peer node start
+
+  peer0.org16.aaa.com:
+    container_name: peer0.org16.aaa.com
+    extends:
+      file: peer-base.yaml
+      service: peer-base
+    environment:
+      # Peer specific variables
+      - CORE_PEER_ID=peer0.org16.aaa.com
+      - CORE_PEER_ADDRESS=peer0.org16.aaa.com:7201
+      - CORE_PEER_LISTENADDRESS=0.0.0.0:7201
+      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.org16.aaa.com:7201
+      - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.org16.aaa.com:7201
+      - CORE_PEER_LOCALMSPID=Org16MSP
+      - CORE_PEER_CHAINCODEADDRESS=peer0.org16.aaa.com:7202
+      - CORE_PEER_CHAINCODELISTENADDRESS=0.0.0.0:7202
+    volumes:
+      - /var/run/:/host/var/run/
+      - ../crypto-config/peerOrganizations/org16.aaa.com/peers/peer0.org16.aaa.com/msp:/etc/hyperledger/fabric/msp
+      - ../crypto-config/peerOrganizations/org16.aaa.com/peers/peer0.org16.aaa.com/tls:/etc/hyperledger/fabric/tls
+    ports:
+      - 7201:7201
+      - 7202:7202
+    command: peer node start
+
+
+# !/bin/bash
+
+# for i in {3..16}; do
+#     port1=$((7041 + i * 10))
+#     port2=$((7042 + i * 10))
+    
+#     echo "peer0.org${i}.aaa.com:"
+#     echo "  container_name: peer0.org${i}.aaa.com"
+#     echo "  extends:"
+#     echo "    file: peer-base.yaml"
+#     echo "    service: peer-base"
+#     echo "  environment:"
+#     echo "    # Peer specific variables"
+#     echo "    - CORE_PEER_ID=peer0.org${i}.aaa.com"
+#     echo "    - CORE_PEER_ADDRESS=peer0.org${i}.aaa.com:${port1}"
+#     echo "    - CORE_PEER_LISTENADDRESS=0.0.0.0:${port1}"
+#     echo "    - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.org${i}.aaa.com:${port1}"
+#     echo "    - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.org${i}.aaa.com:${port1}"
+#     echo "    - CORE_PEER_LOCALMSPID=Org${i}MSP"
+#     echo "    - CORE_PEER_CHAINCODEADDRESS=peer0.org${i}.aaa.com:${port2}"
+#     echo "    - CORE_PEER_CHAINCODELISTENADDRESS=0.0.0.0:${port2}"
+#     echo "  volumes:"
+#     echo "    - /var/run/:/host/var/run/"
+#     echo "    - ../crypto-config/peerOrganizations/org${i}.aaa.com/peers/peer0.org${i}.aaa.com/msp:/etc/hyperledger/fabric/msp"
+#     echo "    - ../crypto-config/peerOrganizations/org${i}.aaa.com/peers/peer0.org${i}.aaa.com/tls:/etc/hyperledger/fabric/tls"
+#     echo "  ports:"
+#     echo "    - ${port1}:${port1}"
+#     echo "    - ${port2}:${port2}"
+#     echo "  command: peer node start"
+#     echo
+# done
+
+
+
+
+
+
+
+

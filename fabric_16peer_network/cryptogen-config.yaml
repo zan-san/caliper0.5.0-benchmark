@@ -1,0 +1,134 @@
+OrdererOrgs:
+  - Name: Orderer
+    Domain: aaa.com
+    EnableNodeOUs: false
+    Specs:
+      - Hostname: orderer
+PeerOrgs:
+  - Name: Org1
+    Domain: org1.aaa.com
+    EnableNodeOUs: false
+    Template:
+      Count: 1
+    Users:
+      Count: 1
+
+  - Name: Org2
+    Domain: org2.aaa.com
+    EnableNodeOUs: false
+    Template:
+      Count: 1
+    Users:
+      Count: 1
+
+  - Name: Org3
+    Domain: org3.aaa.com
+    EnableNodeOUs: false
+    Template:
+      Count: 1
+    Users:
+      Count: 1
+      
+  - Name: Org4
+    Domain: org4.aaa.com
+    EnableNodeOUs: false
+    Template:
+      Count: 1
+    Users:
+      Count: 1
+
+  - Name: Org5
+    Domain: org5.aaa.com
+    EnableNodeOUs: false
+    Template:
+      Count: 1
+    Users:
+      Count: 1
+
+  - Name: Org6
+    Domain: org6.aaa.com
+    EnableNodeOUs: false
+    Template:
+      Count: 1
+    Users:
+      Count: 1
+
+  - Name: Org7
+    Domain: org7.aaa.com
+    EnableNodeOUs: false
+    Template:
+      Count: 1
+    Users:
+      Count: 1
+
+  - Name: Org8
+    Domain: org8.aaa.com
+    EnableNodeOUs: false
+    Template:
+      Count: 1
+    Users:
+      Count: 1
+
+  - Name: Org9
+    Domain: org9.aaa.com
+    EnableNodeOUs: false
+    Template:
+      Count: 1
+    Users:
+      Count: 1
+
+  - Name: Org10
+    Domain: org10.aaa.com
+    EnableNodeOUs: false
+    Template:
+      Count: 1
+    Users:
+      Count: 1
+
+  - Name: Org11
+    Domain: org11.aaa.com
+    EnableNodeOUs: false
+    Template:
+      Count: 1
+    Users:
+      Count: 1
+
+  - Name: Org12
+    Domain: org12.aaa.com
+    EnableNodeOUs: false
+    Template:
+      Count: 1
+    Users:
+      Count: 1
+
+  - Name: Org13
+    Domain: org13.aaa.com
+    EnableNodeOUs: false
+    Template:
+      Count: 1
+    Users:
+      Count: 1
+
+  - Name: Org14
+    Domain: org14.aaa.com
+    EnableNodeOUs: false
+    Template:
+      Count: 1
+    Users:
+      Count: 1
+
+  - Name: Org15
+    Domain: org15.aaa.com
+    EnableNodeOUs: false
+    Template:
+      Count: 1
+    Users:
+      Count: 1
+
+  - Name: Org16
+    Domain: org16.aaa.com
+    EnableNodeOUs: false
+    Template:
+      Count: 1
+    Users:
+      Count: 1
