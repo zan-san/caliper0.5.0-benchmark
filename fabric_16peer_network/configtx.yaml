@@ -48,7 +48,7 @@ Organizations:
                 Rule: "OR('Org1MSP.member')"
         AnchorPeers:
             - Host: peer0.org1.aaa.com
-            Port: 7051
+              Port: 7051
 
     - &Org2
         Name: Org2MSP
@@ -69,7 +69,7 @@ Organizations:
                 Rule: "OR('Org2MSP.member')"
         AnchorPeers:
             - Host: peer0.org2.aaa.com
-            Port: 7061
+              Port: 7061
 
     - &Org3
         Name: Org3MSP
@@ -90,7 +90,7 @@ Organizations:
                 Rule: "OR('Org3MSP.member')"
         AnchorPeers:
             - Host: peer0.org3.aaa.com
-            Port: 7071
+              Port: 7071
 
     - &Org4
         Name: Org4MSP
@@ -111,7 +111,7 @@ Organizations:
                 Rule: "OR('Org4MSP.member')"
         AnchorPeers:
             - Host: peer0.org4.aaa.com
-            Port: 7081
+              Port: 7081
 
     - &Org5
         Name: Org5MSP
@@ -132,7 +132,7 @@ Organizations:
                 Rule: "OR('Org5MSP.member')"
         AnchorPeers:
             - Host: peer0.org5.aaa.com
-            Port: 7091
+              Port: 7091
 
     - &Org6
         Name: Org6MSP
@@ -153,7 +153,7 @@ Organizations:
                 Rule: "OR('Org6MSP.member')"
         AnchorPeers:
             - Host: peer0.org6.aaa.com
-            Port: 7101
+              Port: 7101
 
     - &Org7
         Name: Org7MSP
@@ -174,7 +174,7 @@ Organizations:
                 Rule: "OR('Org7MSP.member')"
         AnchorPeers:
             - Host: peer0.org7.aaa.com
-            Port: 7111
+              Port: 7111
 
     - &Org8
         Name: Org8MSP
@@ -195,7 +195,7 @@ Organizations:
                 Rule: "OR('Org8MSP.member')"
         AnchorPeers:
             - Host: peer0.org8.aaa.com
-            Port: 7121
+              Port: 7121
 
     - &Org9
         Name: Org9MSP
@@ -216,7 +216,7 @@ Organizations:
                 Rule: "OR('Org9MSP.member')"
         AnchorPeers:
             - Host: peer0.org9.aaa.com
-            Port: 7131
+              Port: 7131
 
     - &Org10
         Name: Org10MSP
@@ -237,7 +237,7 @@ Organizations:
                 Rule: "OR('Org10MSP.member')"
         AnchorPeers:
             - Host: peer0.org10.aaa.com
-            Port: 7141
+              Port: 7141
 
     - &Org11
         Name: Org11MSP
@@ -258,7 +258,7 @@ Organizations:
                 Rule: "OR('Org11MSP.member')"
         AnchorPeers:
             - Host: peer0.org11.aaa.com
-            Port: 7151
+              Port: 7151
 
     - &Org12
         Name: Org12MSP
@@ -279,7 +279,7 @@ Organizations:
                 Rule: "OR('Org12MSP.member')"
         AnchorPeers:
             - Host: peer0.org12.aaa.com
-            Port: 7161
+              Port: 7161
 
     - &Org13
         Name: Org13MSP
@@ -300,7 +300,7 @@ Organizations:
                 Rule: "OR('Org13MSP.member')"
         AnchorPeers:
             - Host: peer0.org13.aaa.com
-            Port: 7171
+              Port: 7171
 
     - &Org14
         Name: Org14MSP
@@ -321,7 +321,7 @@ Organizations:
                 Rule: "OR('Org14MSP.member')"
         AnchorPeers:
             - Host: peer0.org14.aaa.com
-            Port: 7181
+              Port: 7181
 
     - &Org15
         Name: Org15MSP
@@ -342,7 +342,8 @@ Organizations:
                 Rule: "OR('Org15MSP.member')"
         AnchorPeers:
             - Host: peer0.org15.aaa.com
-            Port: 7191
+              Port: 7191
+
     - &Org16
         Name: Org16MSP
         ID: Org16MSP
@@ -362,7 +363,7 @@ Organizations:
                 Rule: "OR('Org16MSP.member')"
         AnchorPeers:
             - Host: peer0.org16.aaa.com
-            Port: 7201
+              Port: 7201
 
 
     

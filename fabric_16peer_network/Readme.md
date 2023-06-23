@@ -3,7 +3,7 @@
 ## 1 config 
 workdir 
 ```
- ~/caliper0.5.0-benchmark/fabric_4peer_network 
+ ~/caliper0.5.0-benchmark/fabric_16peer_network 
 ```
 execute command
 ```
@@ -11,7 +11,7 @@ execute command
 ```
 result like 
 ```
-a@a-VirtualBox:~/caliper0.4.2-benchmark/fabric_4peer_network$ ./init.sh 
+a@a-VirtualBox:~/caliper0.4.2-benchmark/fabric_16peer_network$ ./init.sh 
 org1.aaa.com
 org2.aaa.com
 org3.aaa.com
@@ -49,7 +49,7 @@ workdir
 command
 ```
 npx caliper launch manager \
---caliper-workspace fabric_4peer_network \
+--caliper-workspace fabric_16peer_network \
 --caliper-benchconfig caliper_config/config.yaml \
 --caliper-networkconfig caliper_config/network.yaml \
 --caliper-fabric-gateway-enabled \
