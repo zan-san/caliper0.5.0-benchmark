@@ -1,12 +1,12 @@
-tps : &tps 1000
-total : &total 5000
+tps : &tps 3000
+total : &total 10000
 
 test:
     name: base-contract-benchmark
     description: test benchmark
     workers:
       type: local
-      number: 1
+      number: 4
     rounds:
       - label: set
         txNumber: *total
@@ -32,56 +32,56 @@ test:
             assets: 10
             contractId: base
 
-      - label: add
-        txNumber: *total
-        rateControl: 
-          type: fixed-rate
-          opts:
-            tps: *tps
-          # type: fixed-load
-          # opts:
-          #   transactionLoad: 2
-        workload:
-          module: caliper_config/add.js
-          arguments:
-            assets: 10
-            contractId: base
+      # - label: add
+      #   txNumber: *total
+      #   rateControl: 
+      #     type: fixed-rate
+      #     opts:
+      #       tps: *tps
+      #     # type: fixed-load
+      #     # opts:
+      #     #   transactionLoad: 2
+      #   workload:
+      #     module: caliper_config/add.js
+      #     arguments:
+      #       assets: 10
+      #       contractId: base
 
-      - label: mul
-        txNumber: *total
-        rateControl: 
-          type: fixed-rate
-          opts:
-            tps: *tps
-        workload:
-          module: caliper_config/mul.js
-          arguments:
-            assets: 10
-            contractId: base
+      # - label: mul
+      #   txNumber: *total
+      #   rateControl: 
+      #     type: fixed-rate
+      #     opts:
+      #       tps: *tps
+      #   workload:
+      #     module: caliper_config/mul.js
+      #     arguments:
+      #       assets: 10
+      #       contractId: base
 
-      - label: div
-        txNumber: *total
-        rateControl: 
-          type: fixed-rate
-          opts:
-            tps: *tps
-        workload:
-          module: caliper_config/div.js
-          arguments:
-            assets: 10
-            contractId: base     
+      # - label: div
+      #   txNumber: *total
+      #   rateControl: 
+      #     type: fixed-rate
+      #     opts:
+      #       tps: *tps
+      #   workload:
+      #     module: caliper_config/div.js
+      #     arguments:
+      #       assets: 10
+      #       contractId: base     
 
-      - label: fib
-        txNumber: *total
-        rateControl: 
-          type: fixed-rate
-          opts:
-            tps: *tps
-        workload:
-          module: caliper_config/fib.js
-          arguments:
-            assets: 10
-            contractId: base
+      # - label: fib
+      #   txNumber: *total
+      #   rateControl: 
+      #     type: fixed-rate
+      #     opts:
+      #       tps: *tps
+      #   workload:
+      #     module: caliper_config/fib.js
+      #     arguments:
+      #       assets: 10
+      #       contractId: base
 
 monitors:
   resource:

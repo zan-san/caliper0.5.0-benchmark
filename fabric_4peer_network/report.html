@@ -128,7 +128,7 @@
                 <li>DLT: &nbsp<span style="font-weight: 500;">fabric</span></li>
                 <li>Name: &nbsp<span style="font-weight: 500;">base-contract-benchmark</span></li>
                 <li>Description: &nbsp<span style="font-weight: 500;">test benchmark</span></li>
-                <li>Benchmark Rounds: &nbsp<span style="font-weight: 500;">6</span></li>
+                <li>Benchmark Rounds: &nbsp<span style="font-weight: 500;">2</span></li>
                 <li><a href="#benchmarkInfo">Details</a></li>
             </ul>
             <ul>
@@ -136,10 +136,6 @@
                 <li><a href="#benchmarksummary">Summary</a></li>
                     <li><a href="#set">set</a></li>
                     <li><a href="#get">get</a></li>
-                    <li><a href="#add">add</a></li>
-                    <li><a href="#mul">mul</a></li>
-                    <li><a href="#div">div</a></li>
-                    <li><a href="#fib">fib</a></li>
             </ul>
             <ul>
                 <h3>&nbspSystem under test</h3>
@@ -157,22 +153,10 @@
                     </tr>
 
                     <tr>
-                         <td>set</td> <td>5000</td> <td>0</td> <td>662.4</td> <td>0.10</td> <td>0.00</td> <td>0.01</td> <td>662.2</td>
+                         <td>set</td> <td>10000</td> <td>0</td> <td>1665.3</td> <td>0.47</td> <td>0.00</td> <td>0.08</td> <td>1664.4</td>
                     </tr>
                     <tr>
-                         <td>get</td> <td>5000</td> <td>0</td> <td>656.9</td> <td>0.07</td> <td>0.00</td> <td>0.01</td> <td>656.2</td>
-                    </tr>
-                    <tr>
-                         <td>add</td> <td>5000</td> <td>0</td> <td>595.9</td> <td>0.11</td> <td>0.00</td> <td>0.01</td> <td>595.8</td>
-                    </tr>
-                    <tr>
-                         <td>mul</td> <td>5000</td> <td>0</td> <td>678.8</td> <td>0.08</td> <td>0.00</td> <td>0.01</td> <td>678.6</td>
-                    </tr>
-                    <tr>
-                         <td>div</td> <td>5000</td> <td>0</td> <td>667.3</td> <td>0.09</td> <td>0.00</td> <td>0.01</td> <td>666.4</td>
-                    </tr>
-                    <tr>
-                         <td>fib</td> <td>5000</td> <td>0</td> <td>640.5</td> <td>0.07</td> <td>0.00</td> <td>0.01</td> <td>640.2</td>
+                         <td>get</td> <td>10000</td> <td>0</td> <td>1734.6</td> <td>0.23</td> <td>0.00</td> <td>0.04</td> <td>1733.7</td>
                     </tr>
                 </table>
             </div>
@@ -182,7 +166,7 @@
                 <pre style="overflow: visible;white-space: pre-wrap;max-height:100%;">rateControl:
   type: fixed-rate
   opts:
-    tps: 1000
+    tps: 3000
 </pre>
                         <h3>Performance metrics for set</h3>
                             <table style="min-width: 100%;">
@@ -190,7 +174,7 @@
                                      <th>Name</th> <th>Succ</th> <th>Fail</th> <th>Send Rate (TPS)</th> <th>Max Latency (s)</th> <th>Min Latency (s)</th> <th>Avg Latency (s)</th> <th>Throughput (TPS)</th>
                                 </tr>
                                 <tr>
-                                     <td>set</td> <td>5000</td> <td>0</td> <td>662.4</td> <td>0.10</td> <td>0.00</td> <td>0.01</td> <td>662.2</td>
+                                     <td>set</td> <td>10000</td> <td>0</td> <td>1665.3</td> <td>0.47</td> <td>0.00</td> <td>0.08</td> <td>1664.4</td>
                                 </tr>
                             </table>
                         <h3>Resource utilization for set</h3>
@@ -199,22 +183,25 @@
                                 <tr>
                                 <table>
                                     <tr>
-                                         <th>Name</th> <th>CPU%(max)</th> <th>CPU%(avg)</th> <th>Memory(max) [MB]</th> <th>Memory(avg) [MB]</th> <th>Traffic In [MB]</th> <th>Traffic Out [MB]</th> <th>Disc Write [B]</th> <th>Disc Read [B]</th>
+                                         <th>Name</th> <th>CPU%(max)</th> <th>CPU%(avg)</th> <th>Memory(max) [MB]</th> <th>Memory(avg) [MB]</th> <th>Traffic In [B]</th> <th>Traffic Out [B]</th> <th>Disc Write [B]</th> <th>Disc Read [B]</th>
                                     </tr>
                                     <tr>
-                                         <td>&#x2F;dev-peer0.org1.aaa.com-base-cafdab24560aada79f2fb3324883b5c2dfa0f81ca1ff77dbbc718f7cb70567ff</td> <td>12.59</td> <td>4.2</td> <td>6.82</td> <td>6.03</td> <td>7.70</td> <td>2.62</td> <td>0.00</td> <td>0.00</td>
+                                         <td>&#x2F;dev-peer0.org3.aaa.com-base-cafdab24560aada79f2fb3324883b5c2dfa0f81ca1ff77dbbc718f7cb70567ff</td> <td>0</td> <td>0</td> <td>5.05</td> <td>5.05</td> <td>132</td> <td>132</td> <td>0.00</td> <td>0.00</td>
                                     </tr>
                                     <tr>
-                                         <td>&#x2F;dev-peer0.org2.aaa.com-base-cafdab24560aada79f2fb3324883b5c2dfa0f81ca1ff77dbbc718f7cb70567ff</td> <td>0</td> <td>0</td> <td>5.09</td> <td>5.09</td> <td>0.000295</td> <td>0.000126</td> <td>0.00</td> <td>0.00</td>
+                                         <td>&#x2F;dev-peer0.org4.aaa.com-base-cafdab24560aada79f2fb3324883b5c2dfa0f81ca1ff77dbbc718f7cb70567ff</td> <td>0</td> <td>0</td> <td>4.97</td> <td>4.97</td> <td>132</td> <td>132</td> <td>-</td> <td>-</td>
                                     </tr>
                                     <tr>
-                                         <td>&#x2F;dev-peer0.org4.aaa.com-base-cafdab24560aada79f2fb3324883b5c2dfa0f81ca1ff77dbbc718f7cb70567ff</td> <td>0</td> <td>0</td> <td>5.72</td> <td>5.72</td> <td>0.000295</td> <td>0.000126</td> <td>0.00</td> <td>0.00</td>
+                                         <td>&#x2F;dev-peer0.org1.aaa.com-base-cafdab24560aada79f2fb3324883b5c2dfa0f81ca1ff77dbbc718f7cb70567ff</td> <td>NaN</td> <td>NaN</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td>
                                     </tr>
                                     <tr>
-                                         <td>&#x2F;dev-peer0.org3.aaa.com-base-cafdab24560aada79f2fb3324883b5c2dfa0f81ca1ff77dbbc718f7cb70567ff</td> <td>0</td> <td>0</td> <td>5.28</td> <td>5.28</td> <td>0.000335</td> <td>0.000166</td> <td>-</td> <td>-</td>
+                                         <td>&#x2F;dev-peer0.org2.aaa.com-base-cafdab24560aada79f2fb3324883b5c2dfa0f81ca1ff77dbbc718f7cb70567ff</td> <td>NaN</td> <td>NaN</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td>
                                     </tr>
                                     <tr>
                                          <td>&#x2F;cli</td> <td>NaN</td> <td>NaN</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td>
+                                    </tr>
+                                    <tr>
+                                         <td>&#x2F;orderer.aaa.com</td> <td>NaN</td> <td>NaN</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td>
                                     </tr>
                                     <tr>
                                          <td>&#x2F;peer0.org4.aaa.com</td> <td>NaN</td> <td>NaN</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td>
@@ -223,13 +210,10 @@
                                          <td>&#x2F;peer0.org1.aaa.com</td> <td>NaN</td> <td>NaN</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td>
                                     </tr>
                                     <tr>
-                                         <td>&#x2F;peer0.org3.aaa.com</td> <td>NaN</td> <td>NaN</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td>
-                                    </tr>
-                                    <tr>
                                          <td>&#x2F;peer0.org2.aaa.com</td> <td>NaN</td> <td>NaN</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td>
                                     </tr>
                                     <tr>
-                                         <td>&#x2F;orderer.aaa.com</td> <td>NaN</td> <td>NaN</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td>
+                                         <td>&#x2F;peer0.org3.aaa.com</td> <td>NaN</td> <td>NaN</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td>
                                     </tr>
                                 </table>
                                 </tr>
@@ -244,7 +228,7 @@
                 <pre style="overflow: visible;white-space: pre-wrap;max-height:100%;">rateControl:
   type: fixed-rate
   opts:
-    tps: 1000
+    tps: 3000
 </pre>
                         <h3>Performance metrics for get</h3>
                             <table style="min-width: 100%;">
@@ -252,7 +236,7 @@
                                      <th>Name</th> <th>Succ</th> <th>Fail</th> <th>Send Rate (TPS)</th> <th>Max Latency (s)</th> <th>Min Latency (s)</th> <th>Avg Latency (s)</th> <th>Throughput (TPS)</th>
                                 </tr>
                                 <tr>
-                                     <td>get</td> <td>5000</td> <td>0</td> <td>656.9</td> <td>0.07</td> <td>0.00</td> <td>0.01</td> <td>656.2</td>
+                                     <td>get</td> <td>10000</td> <td>0</td> <td>1734.6</td> <td>0.23</td> <td>0.00</td> <td>0.04</td> <td>1733.7</td>
                                 </tr>
                             </table>
                         <h3>Resource utilization for get</h3>
@@ -261,22 +245,25 @@
                                 <tr>
                                 <table>
                                     <tr>
-                                         <th>Name</th> <th>CPU%(max)</th> <th>CPU%(avg)</th> <th>Memory(max) [MB]</th> <th>Memory(avg) [MB]</th> <th>Traffic In [MB]</th> <th>Traffic Out [MB]</th> <th>Disc Write [B]</th> <th>Disc Read [B]</th>
+                                         <th>Name</th> <th>CPU%(max)</th> <th>CPU%(avg)</th> <th>Memory(max) [MB]</th> <th>Memory(avg) [MB]</th> <th>Traffic In [B]</th> <th>Traffic Out [B]</th> <th>Disc Write [B]</th> <th>Disc Read [B]</th>
                                     </tr>
                                     <tr>
-                                         <td>&#x2F;dev-peer0.org1.aaa.com-base-cafdab24560aada79f2fb3324883b5c2dfa0f81ca1ff77dbbc718f7cb70567ff</td> <td>11.07</td> <td>3.69</td> <td>6.21</td> <td>6.13</td> <td>6.64</td> <td>1.61</td> <td>0.00</td> <td>0.00</td>
+                                         <td>&#x2F;dev-peer0.org3.aaa.com-base-cafdab24560aada79f2fb3324883b5c2dfa0f81ca1ff77dbbc718f7cb70567ff</td> <td>0</td> <td>0</td> <td>5.05</td> <td>4.98</td> <td>147</td> <td>213</td> <td>0.00</td> <td>0.00</td>
                                     </tr>
                                     <tr>
-                                         <td>&#x2F;dev-peer0.org2.aaa.com-base-cafdab24560aada79f2fb3324883b5c2dfa0f81ca1ff77dbbc718f7cb70567ff</td> <td>0.01</td> <td>0</td> <td>5.09</td> <td>5.09</td> <td>0.000233</td> <td>0.000166</td> <td>0.00</td> <td>0.00</td>
+                                         <td>&#x2F;dev-peer0.org4.aaa.com-base-cafdab24560aada79f2fb3324883b5c2dfa0f81ca1ff77dbbc718f7cb70567ff</td> <td>0</td> <td>0</td> <td>4.97</td> <td>4.92</td> <td>241</td> <td>171</td> <td>-</td> <td>-</td>
                                     </tr>
                                     <tr>
-                                         <td>&#x2F;dev-peer0.org4.aaa.com-base-cafdab24560aada79f2fb3324883b5c2dfa0f81ca1ff77dbbc718f7cb70567ff</td> <td>0</td> <td>0</td> <td>5.72</td> <td>5.72</td> <td>0.000233</td> <td>0.000166</td> <td>0.00</td> <td>0.00</td>
+                                         <td>&#x2F;dev-peer0.org1.aaa.com-base-cafdab24560aada79f2fb3324883b5c2dfa0f81ca1ff77dbbc718f7cb70567ff</td> <td>NaN</td> <td>NaN</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td>
                                     </tr>
                                     <tr>
-                                         <td>&#x2F;dev-peer0.org3.aaa.com-base-cafdab24560aada79f2fb3324883b5c2dfa0f81ca1ff77dbbc718f7cb70567ff</td> <td>0</td> <td>0</td> <td>5.28</td> <td>5.28</td> <td>0.000166</td> <td>0.000166</td> <td>-</td> <td>-</td>
+                                         <td>&#x2F;dev-peer0.org2.aaa.com-base-cafdab24560aada79f2fb3324883b5c2dfa0f81ca1ff77dbbc718f7cb70567ff</td> <td>NaN</td> <td>NaN</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td>
                                     </tr>
                                     <tr>
                                          <td>&#x2F;cli</td> <td>NaN</td> <td>NaN</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td>
+                                    </tr>
+                                    <tr>
+                                         <td>&#x2F;orderer.aaa.com</td> <td>NaN</td> <td>NaN</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td>
                                     </tr>
                                     <tr>
                                          <td>&#x2F;peer0.org4.aaa.com</td> <td>NaN</td> <td>NaN</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td>
@@ -285,261 +272,10 @@
                                          <td>&#x2F;peer0.org1.aaa.com</td> <td>NaN</td> <td>NaN</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td>
                                     </tr>
                                     <tr>
-                                         <td>&#x2F;peer0.org3.aaa.com</td> <td>NaN</td> <td>NaN</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td>
-                                    </tr>
-                                    <tr>
                                          <td>&#x2F;peer0.org2.aaa.com</td> <td>NaN</td> <td>NaN</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td>
                                     </tr>
                                     <tr>
-                                         <td>&#x2F;orderer.aaa.com</td> <td>NaN</td> <td>NaN</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td>
-                                    </tr>
-                                </table>
-                                </tr>
-                            </table>
-                            <div class="charting">
-                            </div>
-            </div>
-
-            <div style="border-bottom: 1px solid #d9d9d9; padding-bottom: 10px;" id="add">
-                <h2>Benchmark round: add</h2>
-                <p></p>
-                <pre style="overflow: visible;white-space: pre-wrap;max-height:100%;">rateControl:
-  type: fixed-rate
-  opts:
-    tps: 1000
-</pre>
-                        <h3>Performance metrics for add</h3>
-                            <table style="min-width: 100%;">
-                                <tr>
-                                     <th>Name</th> <th>Succ</th> <th>Fail</th> <th>Send Rate (TPS)</th> <th>Max Latency (s)</th> <th>Min Latency (s)</th> <th>Avg Latency (s)</th> <th>Throughput (TPS)</th>
-                                </tr>
-                                <tr>
-                                     <td>add</td> <td>5000</td> <td>0</td> <td>595.9</td> <td>0.11</td> <td>0.00</td> <td>0.01</td> <td>595.8</td>
-                                </tr>
-                            </table>
-                        <h3>Resource utilization for add</h3>
-                            <h4>Resource monitor: docker</h4>
-                            <table style="min-width: 100%;">
-                                <tr>
-                                <table>
-                                    <tr>
-                                         <th>Name</th> <th>CPU%(max)</th> <th>CPU%(avg)</th> <th>Memory(max) [MB]</th> <th>Memory(avg) [MB]</th> <th>Traffic In [MB]</th> <th>Traffic Out [MB]</th> <th>Disc Write [B]</th> <th>Disc Read [B]</th>
-                                    </tr>
-                                    <tr>
-                                         <td>&#x2F;dev-peer0.org1.aaa.com-base-cafdab24560aada79f2fb3324883b5c2dfa0f81ca1ff77dbbc718f7cb70567ff</td> <td>12.28</td> <td>4.41</td> <td>6.17</td> <td>6.14</td> <td>6.68</td> <td>1.60</td> <td>0.00</td> <td>0.00</td>
-                                    </tr>
-                                    <tr>
-                                         <td>&#x2F;dev-peer0.org2.aaa.com-base-cafdab24560aada79f2fb3324883b5c2dfa0f81ca1ff77dbbc718f7cb70567ff</td> <td>0</td> <td>0</td> <td>5.09</td> <td>5.09</td> <td>0.000126</td> <td>0.000126</td> <td>0.00</td> <td>0.00</td>
-                                    </tr>
-                                    <tr>
-                                         <td>&#x2F;dev-peer0.org4.aaa.com-base-cafdab24560aada79f2fb3324883b5c2dfa0f81ca1ff77dbbc718f7cb70567ff</td> <td>0</td> <td>0</td> <td>5.72</td> <td>5.72</td> <td>0.000126</td> <td>0.000126</td> <td>0.00</td> <td>0.00</td>
-                                    </tr>
-                                    <tr>
-                                         <td>&#x2F;dev-peer0.org3.aaa.com-base-cafdab24560aada79f2fb3324883b5c2dfa0f81ca1ff77dbbc718f7cb70567ff</td> <td>0</td> <td>0</td> <td>5.28</td> <td>5.28</td> <td>0.000126</td> <td>0.000126</td> <td>-</td> <td>-</td>
-                                    </tr>
-                                    <tr>
-                                         <td>&#x2F;cli</td> <td>NaN</td> <td>NaN</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td>
-                                    </tr>
-                                    <tr>
-                                         <td>&#x2F;peer0.org4.aaa.com</td> <td>NaN</td> <td>NaN</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td>
-                                    </tr>
-                                    <tr>
-                                         <td>&#x2F;peer0.org1.aaa.com</td> <td>NaN</td> <td>NaN</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td>
-                                    </tr>
-                                    <tr>
                                          <td>&#x2F;peer0.org3.aaa.com</td> <td>NaN</td> <td>NaN</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td>
-                                    </tr>
-                                    <tr>
-                                         <td>&#x2F;peer0.org2.aaa.com</td> <td>NaN</td> <td>NaN</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td>
-                                    </tr>
-                                    <tr>
-                                         <td>&#x2F;orderer.aaa.com</td> <td>NaN</td> <td>NaN</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td>
-                                    </tr>
-                                </table>
-                                </tr>
-                            </table>
-                            <div class="charting">
-                            </div>
-            </div>
-
-            <div style="border-bottom: 1px solid #d9d9d9; padding-bottom: 10px;" id="mul">
-                <h2>Benchmark round: mul</h2>
-                <p></p>
-                <pre style="overflow: visible;white-space: pre-wrap;max-height:100%;">rateControl:
-  type: fixed-rate
-  opts:
-    tps: 1000
-</pre>
-                        <h3>Performance metrics for mul</h3>
-                            <table style="min-width: 100%;">
-                                <tr>
-                                     <th>Name</th> <th>Succ</th> <th>Fail</th> <th>Send Rate (TPS)</th> <th>Max Latency (s)</th> <th>Min Latency (s)</th> <th>Avg Latency (s)</th> <th>Throughput (TPS)</th>
-                                </tr>
-                                <tr>
-                                     <td>mul</td> <td>5000</td> <td>0</td> <td>678.8</td> <td>0.08</td> <td>0.00</td> <td>0.01</td> <td>678.6</td>
-                                </tr>
-                            </table>
-                        <h3>Resource utilization for mul</h3>
-                            <h4>Resource monitor: docker</h4>
-                            <table style="min-width: 100%;">
-                                <tr>
-                                <table>
-                                    <tr>
-                                         <th>Name</th> <th>CPU%(max)</th> <th>CPU%(avg)</th> <th>Memory(max) [MB]</th> <th>Memory(avg) [MB]</th> <th>Traffic In [MB]</th> <th>Traffic Out [MB]</th> <th>Disc Write [B]</th> <th>Disc Read [B]</th>
-                                    </tr>
-                                    <tr>
-                                         <td>&#x2F;dev-peer0.org1.aaa.com-base-cafdab24560aada79f2fb3324883b5c2dfa0f81ca1ff77dbbc718f7cb70567ff</td> <td>11.47</td> <td>3.82</td> <td>5.96</td> <td>5.94</td> <td>6.73</td> <td>1.68</td> <td>0.00</td> <td>0.00</td>
-                                    </tr>
-                                    <tr>
-                                         <td>&#x2F;dev-peer0.org2.aaa.com-base-cafdab24560aada79f2fb3324883b5c2dfa0f81ca1ff77dbbc718f7cb70567ff</td> <td>0</td> <td>0</td> <td>5.09</td> <td>5.09</td> <td>0.0000401</td> <td>0.0000401</td> <td>0.00</td> <td>0.00</td>
-                                    </tr>
-                                    <tr>
-                                         <td>&#x2F;dev-peer0.org4.aaa.com-base-cafdab24560aada79f2fb3324883b5c2dfa0f81ca1ff77dbbc718f7cb70567ff</td> <td>0</td> <td>0</td> <td>5.72</td> <td>5.72</td> <td>0.00</td> <td>0.00</td> <td>0.00</td> <td>0.00</td>
-                                    </tr>
-                                    <tr>
-                                         <td>&#x2F;dev-peer0.org3.aaa.com-base-cafdab24560aada79f2fb3324883b5c2dfa0f81ca1ff77dbbc718f7cb70567ff</td> <td>0</td> <td>0</td> <td>5.28</td> <td>5.28</td> <td>0.0000401</td> <td>0.0000401</td> <td>-</td> <td>-</td>
-                                    </tr>
-                                    <tr>
-                                         <td>&#x2F;cli</td> <td>NaN</td> <td>NaN</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td>
-                                    </tr>
-                                    <tr>
-                                         <td>&#x2F;peer0.org4.aaa.com</td> <td>NaN</td> <td>NaN</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td>
-                                    </tr>
-                                    <tr>
-                                         <td>&#x2F;peer0.org1.aaa.com</td> <td>NaN</td> <td>NaN</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td>
-                                    </tr>
-                                    <tr>
-                                         <td>&#x2F;peer0.org3.aaa.com</td> <td>NaN</td> <td>NaN</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td>
-                                    </tr>
-                                    <tr>
-                                         <td>&#x2F;peer0.org2.aaa.com</td> <td>NaN</td> <td>NaN</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td>
-                                    </tr>
-                                    <tr>
-                                         <td>&#x2F;orderer.aaa.com</td> <td>NaN</td> <td>NaN</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td>
-                                    </tr>
-                                </table>
-                                </tr>
-                            </table>
-                            <div class="charting">
-                            </div>
-            </div>
-
-            <div style="border-bottom: 1px solid #d9d9d9; padding-bottom: 10px;" id="div">
-                <h2>Benchmark round: div</h2>
-                <p></p>
-                <pre style="overflow: visible;white-space: pre-wrap;max-height:100%;">rateControl:
-  type: fixed-rate
-  opts:
-    tps: 1000
-</pre>
-                        <h3>Performance metrics for div</h3>
-                            <table style="min-width: 100%;">
-                                <tr>
-                                     <th>Name</th> <th>Succ</th> <th>Fail</th> <th>Send Rate (TPS)</th> <th>Max Latency (s)</th> <th>Min Latency (s)</th> <th>Avg Latency (s)</th> <th>Throughput (TPS)</th>
-                                </tr>
-                                <tr>
-                                     <td>div</td> <td>5000</td> <td>0</td> <td>667.3</td> <td>0.09</td> <td>0.00</td> <td>0.01</td> <td>666.4</td>
-                                </tr>
-                            </table>
-                        <h3>Resource utilization for div</h3>
-                            <h4>Resource monitor: docker</h4>
-                            <table style="min-width: 100%;">
-                                <tr>
-                                <table>
-                                    <tr>
-                                         <th>Name</th> <th>CPU%(max)</th> <th>CPU%(avg)</th> <th>Memory(max) [MB]</th> <th>Memory(avg) [MB]</th> <th>Traffic In [MB]</th> <th>Traffic Out [MB]</th> <th>Disc Write [B]</th> <th>Disc Read [B]</th>
-                                    </tr>
-                                    <tr>
-                                         <td>&#x2F;dev-peer0.org1.aaa.com-base-cafdab24560aada79f2fb3324883b5c2dfa0f81ca1ff77dbbc718f7cb70567ff</td> <td>11.79</td> <td>3.93</td> <td>6.01</td> <td>5.96</td> <td>6.74</td> <td>1.66</td> <td>0.00</td> <td>0.00</td>
-                                    </tr>
-                                    <tr>
-                                         <td>&#x2F;dev-peer0.org2.aaa.com-base-cafdab24560aada79f2fb3324883b5c2dfa0f81ca1ff77dbbc718f7cb70567ff</td> <td>0.08</td> <td>0.03</td> <td>5.16</td> <td>5.13</td> <td>0.000167</td> <td>0.000163</td> <td>0.00</td> <td>0.00</td>
-                                    </tr>
-                                    <tr>
-                                         <td>&#x2F;dev-peer0.org4.aaa.com-base-cafdab24560aada79f2fb3324883b5c2dfa0f81ca1ff77dbbc718f7cb70567ff</td> <td>0.14</td> <td>0.05</td> <td>5.72</td> <td>5.72</td> <td>0.000230</td> <td>0.000163</td> <td>0.00</td> <td>0.00</td>
-                                    </tr>
-                                    <tr>
-                                         <td>&#x2F;dev-peer0.org3.aaa.com-base-cafdab24560aada79f2fb3324883b5c2dfa0f81ca1ff77dbbc718f7cb70567ff</td> <td>0</td> <td>0</td> <td>5.37</td> <td>5.31</td> <td>0.000100</td> <td>0.000163</td> <td>-</td> <td>-</td>
-                                    </tr>
-                                    <tr>
-                                         <td>&#x2F;cli</td> <td>NaN</td> <td>NaN</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td>
-                                    </tr>
-                                    <tr>
-                                         <td>&#x2F;peer0.org4.aaa.com</td> <td>NaN</td> <td>NaN</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td>
-                                    </tr>
-                                    <tr>
-                                         <td>&#x2F;peer0.org1.aaa.com</td> <td>NaN</td> <td>NaN</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td>
-                                    </tr>
-                                    <tr>
-                                         <td>&#x2F;peer0.org3.aaa.com</td> <td>NaN</td> <td>NaN</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td>
-                                    </tr>
-                                    <tr>
-                                         <td>&#x2F;peer0.org2.aaa.com</td> <td>NaN</td> <td>NaN</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td>
-                                    </tr>
-                                    <tr>
-                                         <td>&#x2F;orderer.aaa.com</td> <td>NaN</td> <td>NaN</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td>
-                                    </tr>
-                                </table>
-                                </tr>
-                            </table>
-                            <div class="charting">
-                            </div>
-            </div>
-
-            <div style="border-bottom: 1px solid #d9d9d9; padding-bottom: 10px;" id="fib">
-                <h2>Benchmark round: fib</h2>
-                <p></p>
-                <pre style="overflow: visible;white-space: pre-wrap;max-height:100%;">rateControl:
-  type: fixed-rate
-  opts:
-    tps: 1000
-</pre>
-                        <h3>Performance metrics for fib</h3>
-                            <table style="min-width: 100%;">
-                                <tr>
-                                     <th>Name</th> <th>Succ</th> <th>Fail</th> <th>Send Rate (TPS)</th> <th>Max Latency (s)</th> <th>Min Latency (s)</th> <th>Avg Latency (s)</th> <th>Throughput (TPS)</th>
-                                </tr>
-                                <tr>
-                                     <td>fib</td> <td>5000</td> <td>0</td> <td>640.5</td> <td>0.07</td> <td>0.00</td> <td>0.01</td> <td>640.2</td>
-                                </tr>
-                            </table>
-                        <h3>Resource utilization for fib</h3>
-                            <h4>Resource monitor: docker</h4>
-                            <table style="min-width: 100%;">
-                                <tr>
-                                <table>
-                                    <tr>
-                                         <th>Name</th> <th>CPU%(max)</th> <th>CPU%(avg)</th> <th>Memory(max) [MB]</th> <th>Memory(avg) [MB]</th> <th>Traffic In [MB]</th> <th>Traffic Out [MB]</th> <th>Disc Write [B]</th> <th>Disc Read [B]</th>
-                                    </tr>
-                                    <tr>
-                                         <td>&#x2F;dev-peer0.org1.aaa.com-base-cafdab24560aada79f2fb3324883b5c2dfa0f81ca1ff77dbbc718f7cb70567ff</td> <td>11.38</td> <td>3.79</td> <td>5.95</td> <td>5.94</td> <td>6.69</td> <td>1.62</td> <td>0.00</td> <td>0.00</td>
-                                    </tr>
-                                    <tr>
-                                         <td>&#x2F;dev-peer0.org2.aaa.com-base-cafdab24560aada79f2fb3324883b5c2dfa0f81ca1ff77dbbc718f7cb70567ff</td> <td>0</td> <td>0</td> <td>5.15</td> <td>5.15</td> <td>0.000126</td> <td>0.000126</td> <td>0.00</td> <td>0.00</td>
-                                    </tr>
-                                    <tr>
-                                         <td>&#x2F;dev-peer0.org4.aaa.com-base-cafdab24560aada79f2fb3324883b5c2dfa0f81ca1ff77dbbc718f7cb70567ff</td> <td>0.18</td> <td>0.06</td> <td>5.72</td> <td>5.68</td> <td>0.000126</td> <td>0.000126</td> <td>0.00</td> <td>0.00</td>
-                                    </tr>
-                                    <tr>
-                                         <td>&#x2F;dev-peer0.org3.aaa.com-base-cafdab24560aada79f2fb3324883b5c2dfa0f81ca1ff77dbbc718f7cb70567ff</td> <td>0.04</td> <td>0.01</td> <td>5.37</td> <td>5.37</td> <td>0.000126</td> <td>0.000126</td> <td>-</td> <td>-</td>
-                                    </tr>
-                                    <tr>
-                                         <td>&#x2F;cli</td> <td>NaN</td> <td>NaN</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td>
-                                    </tr>
-                                    <tr>
-                                         <td>&#x2F;peer0.org4.aaa.com</td> <td>NaN</td> <td>NaN</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td>
-                                    </tr>
-                                    <tr>
-                                         <td>&#x2F;peer0.org1.aaa.com</td> <td>NaN</td> <td>NaN</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td>
-                                    </tr>
-                                    <tr>
-                                         <td>&#x2F;peer0.org3.aaa.com</td> <td>NaN</td> <td>NaN</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td>
-                                    </tr>
-                                    <tr>
-                                         <td>&#x2F;peer0.org2.aaa.com</td> <td>NaN</td> <td>NaN</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td>
-                                    </tr>
-                                    <tr>
-                                         <td>&#x2F;orderer.aaa.com</td> <td>NaN</td> <td>NaN</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td>
                                     </tr>
                                 </table>
                                 </tr>
@@ -555,71 +291,27 @@
 description: test benchmark
 workers:
   type: local
-  number: 1
+  number: 4
 rounds:
   - label: set
-    txNumber: 5000
+    txNumber: 10000
     rateControl:
       type: fixed-rate
       opts:
-        tps: 1000
+        tps: 3000
     workload:
       module: caliper_config&#x2F;set.js
       arguments:
         assets: 10
         contractId: base
   - label: get
-    txNumber: 5000
+    txNumber: 10000
     rateControl:
       type: fixed-rate
       opts:
-        tps: 1000
+        tps: 3000
     workload:
       module: caliper_config&#x2F;get.js
-      arguments:
-        assets: 10
-        contractId: base
-  - label: add
-    txNumber: 5000
-    rateControl:
-      type: fixed-rate
-      opts:
-        tps: 1000
-    workload:
-      module: caliper_config&#x2F;add.js
-      arguments:
-        assets: 10
-        contractId: base
-  - label: mul
-    txNumber: 5000
-    rateControl:
-      type: fixed-rate
-      opts:
-        tps: 1000
-    workload:
-      module: caliper_config&#x2F;mul.js
-      arguments:
-        assets: 10
-        contractId: base
-  - label: div
-    txNumber: 5000
-    rateControl:
-      type: fixed-rate
-      opts:
-        tps: 1000
-    workload:
-      module: caliper_config&#x2F;div.js
-      arguments:
-        assets: 10
-        contractId: base
-  - label: fib
-    txNumber: 5000
-    rateControl:
-      type: fixed-rate
-      opts:
-        tps: 1000
-    workload:
-      module: caliper_config&#x2F;fib.js
       arguments:
         assets: 10
         contractId: base

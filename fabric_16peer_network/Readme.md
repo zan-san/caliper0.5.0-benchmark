@@ -47,6 +47,12 @@ workdir
  ~/caliper0.5.0-benchmark
 ```
 command
+binding fabric STU
+```
+npx caliper bind --caliper-bind-sut fabric:2.2
+```
+run caliper benchmark
+
 ```
 npx caliper launch manager \
 --caliper-workspace fabric_16peer_network \
