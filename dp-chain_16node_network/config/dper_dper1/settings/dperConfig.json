@@ -1,0 +1,18 @@
+{
+"AccountsDir": "./accounts",
+"BlockDBPath": "./database/blockchain",
+"BootstrapNodesFilePath": "./booters/booter.txt",
+"CentralConfigMode": false,
+"ContractEngine": "DEMO_CONTRACT_MIX123",
+"DperKeyAddress": "baa5ce5f4ab372340804a26eb0810b45dc316880",
+"DperPrivateKey": "",
+"DperRole": "Leader",
+"ListenAddress": "127.0.0.1:20131",
+"MaxPeerNum": 20,
+"MemoryDBMode": false,
+"NATKind": "Any",
+"NewAddressMode": false,
+"ServerName": "dper",
+"StorageDBPath": "./database/storage",
+"SubNetName": "net0"
+}

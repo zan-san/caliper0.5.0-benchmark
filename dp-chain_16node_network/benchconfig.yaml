@@ -1,0 +1,50 @@
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+
+---
+test:
+    workers:
+        type: local
+        number: 4
+    rounds:
+    - label: set
+      txNumber: 10000
+      rateControl: { type: 'fixed-rate', opts: { tps: 10000 } }
+      workload:
+        module: ./set.js
+    - label: get
+      txNumber: 50000
+      rateControl: { type: 'linear-rate', opts: { startingTps: 5000, finishingTps: 10000 } }
+      workload:
+        module: ./get.js
+    # - label: add
+    #   txNumber: 100000
+    #   rateControl: { type: 'linear-rate', opts: { startingTps: 30000, finishingTps: 40000 } }
+    #   workload:
+    #     module: ./add.js
+    # - label: mul
+    #   txNumber: 100000
+    #   rateControl: { type: 'linear-rate', opts: { startingTps: 30000, finishingTps: 40000 } }
+    #   workload:
+    #     module: ./mul.js
+    # - label: div
+    #   txNumber: 100000
+    #   rateControl: { type: 'linear-rate', opts: { startingTps: 30000, finishingTps: 40000 } }
+    #   workload:
+    #     module: ./div.js
+    # - label: fib
+    #   txNumber: 100000
+    #   rateControl: { type: 'linear-rate', opts: { startingTps: 30000, finishingTps: 40000 } }
+    #   workload:
+    #     module: ./get.js

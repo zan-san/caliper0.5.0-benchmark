@@ -1,0 +1,84 @@
+{
+    "caliper": {
+        "blockchain": "ethereum",
+        "command" : {
+            "start": "",
+            "end" : ""
+          }
+    },
+    "ethereum": {
+        "url": "ws://localhost:3334",
+        "contractDeployerAddress": "0xb66dc8d2f0f8bfc450111d140d6905852372eac0",
+        "contractDeployerAddressPassword": "password",
+        "fromAddress": "0xb66dc8d2f0f8bfc450111d140d6905852372eac0",
+        "fromAddressPassword": "password",
+        "transactionConfirmationBlocks": 2,
+        "contracts": {
+            "simple": {
+                "path": "contracts/test.json",
+
+                "gas": {
+                    "add": 70000,
+                    "mul": 70000,
+                    "div": 70000,
+                    "get": 70000,
+                    "set": 70000
+                },
+                "abi": [        
+                        {
+                        "inputs": [
+                            {
+                                "internalType": "uint256",
+                                "name": "n",
+                                "type": "uint256"
+                            }
+                        ],
+                        "name": "add",
+                        "outputs": [
+                            {
+                                "internalType": "uint256",
+                                "name": "",
+                                "type": "uint256"
+                            }
+                        ],
+                        "stateMutability": "pure",
+                        "type": "function"
+                        },
+                        {
+                            "inputs": [
+                                {
+                                    "internalType": "uint256",
+                                    "name": "n",
+                                    "type": "uint256"
+                                }
+                            ],
+                            "name": "get",
+                            "outputs": [
+                                {
+                                    "internalType": "string",
+                                    "name": "",
+                                    "type": "string"
+                                }
+                            ],
+                            "stateMutability": "view",
+                            "type": "function"
+                        },
+                        {
+                            "inputs": [
+                                {
+                                    "internalType": "string",
+                                    "name": "str",
+                                    "type": "string"
+                                }
+                            ],
+                            "name": "set",
+                            "outputs": [],
+                            "stateMutability": "nonpayable",
+                            "type": "function"
+                        }
+                ],
+                "address": "0xb66dc8d2f0f8bfc450111d140d6905852372eac0"
+            }
+        }
+    }
+}

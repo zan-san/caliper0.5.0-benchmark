@@ -1,0 +1,4 @@
+{
+    "NetWorkMethod":"tcp",
+    "RpcIPAddress":"127.0.0.1:5100"
+}

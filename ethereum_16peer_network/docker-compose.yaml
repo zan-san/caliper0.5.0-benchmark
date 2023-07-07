@@ -1,0 +1,507 @@
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+
+version: "3"
+
+services:
+  bootnode:
+    image: ethereum/client-go:alltools-v1.11.6
+    container_name: bootnode
+    volumes:
+      - ./boot.key:/root/boot.key
+    network_mode: host
+    command: 
+      - bootnode
+      - --nodekey=root/boot.key 
+      - --addr=:30305
+
+  node1:
+    image: ethereum/client-go:alltools-v1.11.6
+    container_name: node1
+    volumes:
+      - ./node1:/root/node1
+    network_mode: host
+    command:
+      - geth
+      - --datadir=/root/node1
+      - --port=8101
+      - --bootnodes=enode://361aedc8483836f96735859adbaa498b76fceb9c9037ff83c9c8942a45b8a4e0dec3fa42696af906f7b0f3d47d56ba64b6c43d52ef142cb1660eb802a242ad05@127.0.0.1:0?discport=30305
+      - --networkid=123123
+      - --unlock=0xb66dc8d2f0f8bfc450111d140d6905852372eac0
+      - --authrpc.port=11111
+      - --password=/root/node1/keystore/password
+
+      - --ws
+      - --ws.port=3334 
+      - --ws.api=admin,eth,miner,personal,web3 
+
+      - --mine 
+      - --miner.threads=2 
+      - --miner.etherbase=0xb66dc8d2f0f8bfc450111d140d6905852372eac0
+      - --miner.gasprice=1 
+
+      - --allow-insecure-unlock 
+    depends_on:
+      - bootnode
+
+  node2:
+    image: ethereum/client-go:alltools-v1.11.6
+    container_name: node2
+    volumes:
+      - ./node2:/root/node2
+    network_mode: host
+    command:
+      - geth
+      - --datadir=/root/node2
+      - --port=8102
+      - --bootnodes=enode://361aedc8483836f96735859adbaa498b76fceb9c9037ff83c9c8942a45b8a4e0dec3fa42696af906f7b0f3d47d56ba64b6c43d52ef142cb1660eb802a242ad05@127.0.0.1:0?discport=30305
+      - --networkid=123123
+      - --unlock=0xec53dff4b3b3b67ad944da7a1dff3f9e6d85aecb
+      - --authrpc.port=11112
+      - --password=/root/node2/keystore/password
+
+      - --ws
+      - --ws.port=3335
+      - --ws.api=admin,eth,miner,personal,web3 
+
+      # - --mine 
+      # - --miner.threads=2 
+      # - --miner.etherbase=0xec53dff4b3b3b67ad944da7a1dff3f9e6d85aecb
+      # - --miner.gasprice=1 
+
+      - --allow-insecure-unlock 
+    depends_on:
+      - bootnode
+      - node1
+
+  node3:
+    image: ethereum/client-go:alltools-v1.11.6
+    container_name: node3
+    volumes:
+      - ./node3:/root/node3
+    network_mode: host
+    command:
+      - geth
+      - --datadir=/root/node3
+      - --port=8103
+      - --bootnodes=enode://c0bc2687523896c896cd37752faf61483fd980ff632979478e378006ad5445f35393578b443d7ccce50853139a70a169235891aebb1744c47d070fb5995645e7@127.0.0.1:0?discport=30305
+      - --networkid=123123
+      - --unlock=0x55d1d0ec4d62101ee599ac53d7e01d9248c30fa3
+      - --authrpc.port=11113
+      - --password=/root/node3/keystore/password
+      
+      - --ws
+      - --ws.port=3336
+      - --ws.api=admin,eth,miner,personal,web3 
+
+      # - --mine 
+      # - --miner.threads=2 
+      # - --miner.etherbase=0x55d1d0ec4d62101ee599ac53d7e01d9248c30fa3
+      # - --miner.gasprice=1 
+
+      - --allow-insecure-unlock 
+
+    depends_on:
+      - bootnode
+      - node2
+
+  node4:
+    image: ethereum/client-go:alltools-v1.11.6
+    container_name: node4
+    volumes:
+      - ./node4:/root/node4
+    network_mode: host
+    command:
+      - geth
+      - --datadir=/root/node4
+      - --port=8104
+      - --bootnodes=enode://c0bc2687523896c896cd37752faf61483fd980ff632979478e378006ad5445f35393578b443d7ccce50853139a70a169235891aebb1744c47d070fb5995645e7@127.0.0.1:0?discport=30305
+      - --networkid=123123
+      - --unlock=0x44431331e5d2b0f475adb3c4b0ed799ec46bab9c
+      - --authrpc.port=11114
+      - --password=/root/node4/keystore/password
+
+      - --ws
+      - --ws.port=3337
+      - --ws.api=admin,eth,miner,personal,web3 
+
+      # - --mine 
+      # - --miner.threads=2 
+      # - --miner.etherbase=0x44431331e5d2b0f475adb3c4b0ed799ec46bab9c
+      # - --miner.gasprice=1 
+
+      - --allow-insecure-unlock 
+    depends_on:
+      - bootnode
+      - node3
+
+  node5:
+    image: ethereum/client-go:alltools-v1.11.6
+    container_name: node5
+    volumes:
+      - ./node5:/root/node5
+    network_mode: host
+    command:
+      - geth
+      - --datadir=/root/node5
+      - --port=8105
+      - --bootnodes=enode://c0bc2687523896c896cd37752faf61483fd980ff632979478e378006ad5445f35393578b443d7ccce50853139a70a169235891aebb1744c47d070fb5995645e7@127.0.0.1:0?discport=30305
+      - --networkid=123123
+      - --unlock=0x8cbc49923403e35c0f911ee013ec5c3db540268a
+      - --authrpc.port=11115
+      - --password=/root/node5/keystore/password
+
+      - --ws
+      - --ws.port=3338
+      - --ws.api=admin,eth,miner,personal,web3 
+
+      # - --mine 
+      # - --miner.threads=2 
+      # - --miner.etherbase=0x44431331e5d2b0f475adb3c4b0ed799ec46bab9c
+      # - --miner.gasprice=1 
+
+      - --allow-insecure-unlock 
+    depends_on:
+      - bootnode
+      - node4
+
+  node6:
+    image: ethereum/client-go:alltools-v1.11.6
+    container_name: node6
+    volumes:
+      - ./node6:/root/node6
+    network_mode: host
+    command:
+      - geth
+      - --datadir=/root/node6
+      - --port=8106
+      - --bootnodes=enode://c0bc2687523896c896cd37752faf61483fd980ff632979478e378006ad5445f35393578b443d7ccce50853139a70a169235891aebb1744c47d070fb5995645e7@127.0.0.1:0?discport=30305
+      - --networkid=123123
+      - --unlock=0xfa12602f1fda07f19cc2ad318d72c62e246133e9
+      - --authrpc.port=11116
+      - --password=/root/node6/keystore/password
+
+      - --ws
+      - --ws.port=3339
+      - --ws.api=admin,eth,miner,personal,web3 
+
+      # - --mine 
+      # - --miner.threads=2 
+      # - --miner.etherbase=0x44431331e5d2b0f475adb3c4b0ed799ec46bab9c
+      # - --miner.gasprice=1 
+
+      - --allow-insecure-unlock 
+    depends_on:
+      - bootnode
+      - node5
+
+  node7:
+    image: ethereum/client-go:alltools-v1.11.6
+    container_name: node7
+    volumes:
+      - ./node7:/root/node7
+    network_mode: host
+    command:
+      - geth
+      - --datadir=/root/node7
+      - --port=8107
+      - --bootnodes=enode://c0bc2687523896c896cd37752faf61483fd980ff632979478e378006ad5445f35393578b443d7ccce50853139a70a169235891aebb1744c47d070fb5995645e7@127.0.0.1:0?discport=30305
+      - --networkid=123123
+      - --unlock=0x041f955e656d22f3e4f22138a19316f6a2d30c50
+      - --authrpc.port=11117
+      - --password=/root/node7/keystore/password
+
+      - --ws
+      - --ws.port=3340
+      - --ws.api=admin,eth,miner,personal,web3 
+
+      # - --mine 
+      # - --miner.threads=2 
+      # - --miner.etherbase=0x44431331e5d2b0f475adb3c4b0ed799ec46bab9c
+      # - --miner.gasprice=1 
+
+      - --allow-insecure-unlock 
+    depends_on:
+      - bootnode
+      - node6
+
+  node8:
+    image: ethereum/client-go:alltools-v1.11.6
+    container_name: node8
+    volumes:
+      - ./node8:/root/node8
+    network_mode: host
+    command:
+      - geth
+      - --datadir=/root/node8
+      - --port=8108
+      - --bootnodes=enode://c0bc2687523896c896cd37752faf61483fd980ff632979478e378006ad5445f35393578b443d7ccce50853139a70a169235891aebb1744c47d070fb5995645e7@127.0.0.1:0?discport=30305
+      - --networkid=123123
+      - --unlock=0xd19f99405af8ab495b9ad90809a4c5d2047b10cb
+      - --authrpc.port=11118
+      - --password=/root/node8/keystore/password
+
+      - --ws
+      - --ws.port=3341
+      - --ws.api=admin,eth,miner,personal,web3 
+
+      # - --mine 
+      # - --miner.threads=2 
+      # - --miner.etherbase=0x44431331e5d2b0f475adb3c4b0ed799ec46bab9c
+      # - --miner.gasprice=1 
+
+      - --allow-insecure-unlock 
+    depends_on:
+      - bootnode
+      - node7
+
+  node9:
+    image: ethereum/client-go:alltools-v1.11.6
+    container_name: node9
+    volumes:
+      - ./node9:/root/node9
+    network_mode: host
+    command:
+      - geth
+      - --datadir=/root/node9
+      - --port=8109
+      - --bootnodes=enode://c0bc2687523896c896cd37752faf61483fd980ff632979478e378006ad5445f35393578b443d7ccce50853139a70a169235891aebb1744c47d070fb5995645e7@127.0.0.1:0?discport=30305
+      - --networkid=123123
+      - --unlock=0xa10b68f01fb3afcd5433c0beec525df5e1ae72fa
+      - --authrpc.port=11119
+      - --password=/root/node9/keystore/password
+
+      - --ws
+      - --ws.port=3342
+      - --ws.api=admin,eth,miner,personal,web3 
+
+      # - --mine 
+      # - --miner.threads=2 
+      # - --miner.etherbase=0x44431331e5d2b0f475adb3c4b0ed799ec46bab9c
+      # - --miner.gasprice=1 
+
+      - --allow-insecure-unlock 
+    depends_on:
+      - bootnode
+      - node8
+
+  node10:
+    image: ethereum/client-go:alltools-v1.11.6
+    container_name: node10
+    volumes:
+      - ./node10:/root/node10
+    network_mode: host
+    command:
+      - geth
+      - --datadir=/root/node10
+      - --port=8110
+      - --bootnodes=enode://c0bc2687523896c896cd37752faf61483fd980ff632979478e378006ad5445f35393578b443d7ccce50853139a70a169235891aebb1744c47d070fb5995645e7@127.0.0.1:0?discport=30305
+      - --networkid=123123
+      - --unlock=0xb2effbbea4a2f9d7f88079d32c5591a6409a2edc
+      - --authrpc.port=11120
+      - --password=/root/node10/keystore/password
+
+      - --ws
+      - --ws.port=3343
+      - --ws.api=admin,eth,miner,personal,web3 
+
+      # - --mine 
+      # - --miner.threads=2 
+      # - --miner.etherbase=0x44431331e5d2b0f475adb3c4b0ed799ec46bab9c
+      # - --miner.gasprice=1 
+
+      - --allow-insecure-unlock 
+    depends_on:
+      - bootnode
+      - node9
+
+  node11:
+    image: ethereum/client-go:alltools-v1.11.6
+    container_name: node11
+    volumes:
+      - ./node11:/root/node11
+    network_mode: host
+    command:
+      - geth
+      - --datadir=/root/node11
+      - --port=8111
+      - --bootnodes=enode://c0bc2687523896c896cd37752faf61483fd980ff632979478e378006ad5445f35393578b443d7ccce50853139a70a169235891aebb1744c47d070fb5995645e7@127.0.0.1:0?discport=30305
+      - --networkid=123123
+      - --unlock=0xed5e9fa7046c0e9ae26ef45bec19a56821d3428c
+      - --authrpc.port=11121
+      - --password=/root/node11/keystore/password
+
+      - --ws
+      - --ws.port=3344
+      - --ws.api=admin,eth,miner,personal,web3 
+
+      # - --mine 
+      # - --miner.threads=2 
+      # - --miner.etherbase=0x44431331e5d2b0f475adb3c4b0ed799ec46bab9c
+      # - --miner.gasprice=1 
+
+      - --allow-insecure-unlock 
+    depends_on:
+      - bootnode
+      - node10
+
+  node12:
+    image: ethereum/client-go:alltools-v1.11.6
+    container_name: node12
+    volumes:
+      - ./node12:/root/node12
+    network_mode: host
+    command:
+      - geth
+      - --datadir=/root/node12
+      - --port=8112
+      - --bootnodes=enode://c0bc2687523896c896cd37752faf61483fd980ff632979478e378006ad5445f35393578b443d7ccce50853139a70a169235891aebb1744c47d070fb5995645e7@127.0.0.1:0?discport=30305
+      - --networkid=123123
+      - --unlock=0x265911bf902400a5bdf6ec79f1b0ba0cfb424df4
+      - --authrpc.port=11122
+      - --password=/root/node12/keystore/password
+
+      - --ws
+      - --ws.port=3345
+      - --ws.api=admin,eth,miner,personal,web3 
+
+      # - --mine 
+      # - --miner.threads=2 
+      # - --miner.etherbase=0x44431331e5d2b0f475adb3c4b0ed799ec46bab9c
+      # - --miner.gasprice=1 
+
+      - --allow-insecure-unlock 
+    depends_on:
+      - bootnode
+      - node11
+
+  node13:
+    image: ethereum/client-go:alltools-v1.11.6
+    container_name: node13
+    volumes:
+      - ./node13:/root/node13
+    network_mode: host
+    command:
+      - geth
+      - --datadir=/root/node13
+      - --port=8113
+      - --bootnodes=enode://c0bc2687523896c896cd37752faf61483fd980ff632979478e378006ad5445f35393578b443d7ccce50853139a70a169235891aebb1744c47d070fb5995645e7@127.0.0.1:0?discport=30305
+      - --networkid=123123
+      - --unlock=0x44431331e5d2b0f475adb3c4b0ed799ec46bab9c
+      - --authrpc.port=11123
+      - --password=/root/node13/keystore/password
+
+      - --ws
+      - --ws.port=3346
+      - --ws.api=admin,eth,miner,personal,web3 
+
+      # - --mine 
+      # - --miner.threads=2 
+      # - --miner.etherbase=0x44431331e5d2b0f475adb3c4b0ed799ec46bab9c
+      # - --miner.gasprice=1 
+
+      - --allow-insecure-unlock 
+    depends_on:
+      - bootnode
+      - node12
+
+  node14:
+    image: ethereum/client-go:alltools-v1.11.6
+    container_name: node14
+    volumes:
+      - ./node14:/root/node14
+    network_mode: host
+    command:
+      - geth
+      - --datadir=/root/node14
+      - --port=8114
+      - --bootnodes=enode://c0bc2687523896c896cd37752faf61483fd980ff632979478e378006ad5445f35393578b443d7ccce50853139a70a169235891aebb1744c47d070fb5995645e7@127.0.0.1:0?discport=30305
+      - --networkid=123123
+      - --unlock=0x01f2c4774ab37692e444d53f84a576b63accd6f62
+      - --authrpc.port=11124
+      - --password=/root/node14/keystore/password
+
+      - --ws
+      - --ws.port=3347
+      - --ws.api=admin,eth,miner,personal,web3 
+
+      # - --mine 
+      # - --miner.threads=2 
+      # - --miner.etherbase=0x44431331e5d2b0f475adb3c4b0ed799ec46bab9c
+      # - --miner.gasprice=1 
+
+      - --allow-insecure-unlock 
+    depends_on:
+      - bootnode
+      - node13
+  node15:
+    image: ethereum/client-go:alltools-v1.11.6
+    container_name: node15
+    volumes:
+      - ./node15:/root/node15
+    network_mode: host
+    command:
+      - geth
+      - --datadir=/root/node15
+      - --port=8115
+      - --bootnodes=enode://c0bc2687523896c896cd37752faf61483fd980ff632979478e378006ad5445f35393578b443d7ccce50853139a70a169235891aebb1744c47d070fb5995645e7@127.0.0.1:0?discport=30305
+      - --networkid=123123
+      - --unlock=0xcaf656bc695ee23417c630a37b64980cffba5108
+      - --authrpc.port=11125
+      - --password=/root/node15/keystore/password
+
+      - --ws
+      - --ws.port=3348
+      - --ws.api=admin,eth,miner,personal,web3 
+
+      # - --mine 
+      # - --miner.threads=2 
+      # - --miner.etherbase=0x44431331e5d2b0f475adb3c4b0ed799ec46bab9c
+      # - --miner.gasprice=1 
+
+      - --allow-insecure-unlock 
+    depends_on:
+      - bootnode
+      - node14
+
+  node16:
+    image: ethereum/client-go:alltools-v1.11.6
+    container_name: node16
+    volumes:
+      - ./node16:/root/node16
+    network_mode: host
+    command:
+      - geth
+      - --datadir=/root/node16
+      - --port=8116
+      - --bootnodes=enode://c0bc2687523896c896cd37752faf61483fd980ff632979478e378006ad5445f35393578b443d7ccce50853139a70a169235891aebb1744c47d070fb5995645e7@127.0.0.1:0?discport=30305
+      - --networkid=123123
+      - --unlock=0x60ea78a8b50ebc83f2f8a82dcda95cdd0babadb8
+      - --authrpc.port=11126
+      - --password=/root/node16/keystore/password
+
+      - --ws
+      - --ws.port=3349
+      - --ws.api=admin,eth,miner,personal,web3 
+
+      # - --mine 
+      # - --miner.threads=2 
+      # - --miner.etherbase=0x44431331e5d2b0f475adb3c4b0ed799ec46bab9c
+      # - --miner.gasprice=1 
+
+      - --allow-insecure-unlock 
+    depends_on:
+      - bootnode
+      - node15
+  

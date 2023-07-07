@@ -1,0 +1,147 @@
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+
+version: "3"
+
+services:
+  bootnode:
+    image: ethereum/client-go:alltools-v1.11.6
+    container_name: bootnode
+    volumes:
+      - ./boot.key:/root/boot.key
+    network_mode: host
+    command: 
+      - bootnode
+      - --nodekey=root/boot.key 
+      - --addr=:30305
+
+  node1:
+    image: ethereum/client-go:alltools-v1.11.6
+    container_name: node1
+    volumes:
+      - ./node1:/root/node1
+    network_mode: host
+    command:
+      - geth
+      - --datadir=/root/node1
+      - --port=8101
+      - --bootnodes=enode://361aedc8483836f96735859adbaa498b76fceb9c9037ff83c9c8942a45b8a4e0dec3fa42696af906f7b0f3d47d56ba64b6c43d52ef142cb1660eb802a242ad05@127.0.0.1:0?discport=30305
+      - --networkid=123123
+      - --unlock=0xb66dc8d2f0f8bfc450111d140d6905852372eac0
+      - --authrpc.port=11111
+      - --password=/root/node1/keystore/password
+
+      - --ws
+      - --ws.port=3334 
+      - --ws.api=admin,eth,miner,personal,web3 
+
+      - --mine 
+      - --miner.threads=2 
+      - --miner.etherbase=0xb66dc8d2f0f8bfc450111d140d6905852372eac0
+      - --miner.gasprice=1 
+
+      - --allow-insecure-unlock 
+    depends_on:
+      - bootnode
+
+  node2:
+    image: ethereum/client-go:alltools-v1.11.6
+    container_name: node2
+    volumes:
+      - ./node2:/root/node2
+    network_mode: host
+    command:
+      - geth
+      - --datadir=/root/node2
+      - --port=8102
+      - --bootnodes=enode://361aedc8483836f96735859adbaa498b76fceb9c9037ff83c9c8942a45b8a4e0dec3fa42696af906f7b0f3d47d56ba64b6c43d52ef142cb1660eb802a242ad05@127.0.0.1:0?discport=30305
+      - --networkid=123123
+      - --unlock=0xec53dff4b3b3b67ad944da7a1dff3f9e6d85aecb
+      - --authrpc.port=11112
+      - --password=/root/node2/keystore/password
+
+      - --ws
+      - --ws.port=3335
+      - --ws.api=admin,eth,miner,personal,web3 
+
+      # - --mine 
+      # - --miner.threads=2 
+      # - --miner.etherbase=0xec53dff4b3b3b67ad944da7a1dff3f9e6d85aecb
+      # - --miner.gasprice=1 
+
+      - --allow-insecure-unlock 
+    depends_on:
+      - bootnode
+      - node1
+
+  node3:
+    image: ethereum/client-go:alltools-v1.11.6
+    container_name: node3
+    volumes:
+      - ./node3:/root/node3
+    network_mode: host
+    command:
+      - geth
+      - --datadir=/root/node3
+      - --port=8103
+      - --bootnodes=enode://c0bc2687523896c896cd37752faf61483fd980ff632979478e378006ad5445f35393578b443d7ccce50853139a70a169235891aebb1744c47d070fb5995645e7@127.0.0.1:0?discport=30305
+      - --networkid=123123
+      - --unlock=0x55d1d0ec4d62101ee599ac53d7e01d9248c30fa3
+      - --authrpc.port=11113
+      - --password=/root/node3/keystore/password
+      
+      - --ws
+      - --ws.port=3336
+      - --ws.api=admin,eth,miner,personal,web3 
+
+      # - --mine 
+      # - --miner.threads=2 
+      # - --miner.etherbase=0x55d1d0ec4d62101ee599ac53d7e01d9248c30fa3
+      # - --miner.gasprice=1 
+
+      - --allow-insecure-unlock 
+
+    depends_on:
+      - bootnode
+      - node2
+
+  node4:
+    image: ethereum/client-go:alltools-v1.11.6
+    container_name: node4
+    volumes:
+      - ./node4:/root/node4
+    network_mode: host
+    command:
+      - geth
+      - --datadir=/root/node4
+      - --port=8104
+      - --bootnodes=enode://c0bc2687523896c896cd37752faf61483fd980ff632979478e378006ad5445f35393578b443d7ccce50853139a70a169235891aebb1744c47d070fb5995645e7@127.0.0.1:0?discport=30305
+      - --networkid=123123
+      - --unlock=0x44431331e5d2b0f475adb3c4b0ed799ec46bab9c
+      - --authrpc.port=11114
+      - --password=/root/node4/keystore/password
+
+      - --ws
+      - --ws.port=3337
+      - --ws.api=admin,eth,miner,personal,web3 
+
+      # - --mine 
+      # - --miner.threads=2 
+      # - --miner.etherbase=0x44431331e5d2b0f475adb3c4b0ed799ec46bab9c
+      # - --miner.gasprice=1 
+
+      - --allow-insecure-unlock 
+    depends_on:
+      - bootnode
+      - node3

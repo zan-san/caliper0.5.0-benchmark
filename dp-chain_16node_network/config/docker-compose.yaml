@@ -1,0 +1,173 @@
+version: "3"
+
+services:
+  booter:
+    image: zansan/dper:0.9
+    stdin_open: true
+    working_dir: /
+    volumes:
+      - ./dper_booter1:/data
+      - ./perpare.sh:/data/perpare.sh
+    container_name: booter
+    command: /data/perpare.sh
+    network_mode: host
+
+  node1:
+    image: zansan/dper:0.9
+    working_dir: /
+    volumes:
+      - ./dper_dper1:/data
+      - ./perpare.sh:/data/perpare.sh
+    container_name: node1
+    command: /data/perpare.sh
+    network_mode: host
+
+  node2:
+    image: zansan/dper:0.9
+    working_dir: /
+    volumes:
+      - ./dper_dper2:/data
+      - ./perpare.sh:/data/perpare.sh
+    container_name: node2
+    command: /data/perpare.sh
+    network_mode: host
+
+  node3:
+    image: zansan/dper:0.9
+    working_dir: /
+    volumes:
+      - ./dper_dper3:/data
+      - ./perpare.sh:/data/perpare.sh
+    container_name: node3
+    command: /data/perpare.sh
+    network_mode: host
+
+  node4:
+    image: zansan/dper:0.9
+    working_dir: /
+    volumes:
+      - ./dper_dper4:/data
+      - ./perpare.sh:/data/perpare.sh
+    container_name: node4
+    command: /data/perpare.sh
+    network_mode: host
+
+  node5:
+    image: zansan/dper:0.9
+    working_dir: /
+    volumes:
+      - ./dper_dper5:/data
+      - ./perpare.sh:/data/perpare.sh
+    container_name: node5
+    command: /data/perpare.sh
+    network_mode: host
+
+  node6:
+    image: zansan/dper:0.9
+    working_dir: /
+    volumes:
+      - ./dper_dper6:/data
+      - ./perpare.sh:/data/perpare.sh
+    container_name: node6
+    command: /data/perpare.sh
+    network_mode: host
+
+  node7:
+    image: zansan/dper:0.9
+    working_dir: /
+    volumes:
+      - ./dper_dper7:/data
+      - ./perpare.sh:/data/perpare.sh
+    container_name: node7
+    command: /data/perpare.sh
+    network_mode: host
+
+  node8:
+    image: zansan/dper:0.9
+    working_dir: /
+    volumes:
+      - ./dper_dper8:/data
+      - ./perpare.sh:/data/perpare.sh
+    container_name: node8
+    command: /data/perpare.sh
+    network_mode: host
+
+  node9:
+    image: zansan/dper:0.9
+    working_dir: /
+    volumes:
+      - ./dper_dper9:/data
+      - ./perpare.sh:/data/perpare.sh
+    container_name: node9
+    command: /data/perpare.sh
+    network_mode: host
+
+  node10:
+    image: zansan/dper:0.9
+    working_dir: /
+    volumes:
+      - ./dper_dper10:/data
+      - ./perpare.sh:/data/perpare.sh
+    container_name: node10
+    command: /data/perpare.sh
+    network_mode: host
+
+  node11:
+    image: zansan/dper:0.9
+    working_dir: /
+    volumes:
+      - ./dper_dper11:/data
+      - ./perpare.sh:/data/perpare.sh
+    container_name: node11
+    command: /data/perpare.sh
+    network_mode: host
+
+  node12:
+    image: zansan/dper:0.9
+    working_dir: /
+    volumes:
+      - ./dper_dper12:/data
+      - ./perpare.sh:/data/perpare.sh
+    container_name: node12
+    command: /data/perpare.sh
+    network_mode: host
+
+  node13:
+    image: zansan/dper:0.9
+    working_dir: /
+    volumes:
+      - ./dper_dper13:/data
+      - ./perpare.sh:/data/perpare.sh
+    container_name: node13
+    command: /data/perpare.sh
+    network_mode: host
+
+  node14:
+    image: zansan/dper:0.9
+    working_dir: /
+    volumes:
+      - ./dper_dper14:/data
+      - ./perpare.sh:/data/perpare.sh
+    container_name: node14
+    command: /data/perpare.sh
+    network_mode: host
+
+  node15:
+    image: zansan/dper:0.9
+    working_dir: /
+    volumes:
+      - ./dper_dper15:/data
+      - ./perpare.sh:/data/perpare.sh
+    container_name: node15
+    command: /data/perpare.sh
+    network_mode: host
+    
+  node16:
+    image: zansan/dper:0.9
+    working_dir: /
+    volumes:
+      - ./dper_dper16:/data
+      - ./perpare.sh:/data/perpare.sh
+    container_name: node16
+    command: /data/perpare.sh
+    network_mode: host
