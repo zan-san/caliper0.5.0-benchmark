@@ -14,7 +14,7 @@
         "fromAddressPassword": "password",
         "transactionConfirmationBlocks": 2,
         "contracts": {
-            "simple": {
+            "test": {
                 "path": "contracts/test.json",
 
                 "gas": {
@@ -22,7 +22,8 @@
                     "mul": 70000,
                     "div": 70000,
                     "get": 70000,
-                    "set": 70000
+                    "set": 70000,
+                    "transferAsset":70000
                 },
                 "abi": [        
                         {
@@ -75,7 +76,26 @@
                             "outputs": [],
                             "stateMutability": "nonpayable",
                             "type": "function"
-                        }
+                        },
+                        {
+                            "inputs":
+                            [
+                              {
+                                "internalType": "string",
+                                "name": "sender",
+                                "type": "string"
+                              },
+                              {
+                                "internalType": "string",
+                                "name": "receiver",
+                                "type": "string"
+                              }
+                            ],
+                            "name": "transferAsset",
+                            "outputs": [],
+                            "stateMutability": "nonpayable",
+                            "type": "function"
+                          }
                 ],
                 "address": "0xb66dc8d2f0f8bfc450111d140d6905852372eac0"
             }

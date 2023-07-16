@@ -3,7 +3,7 @@ simpleArgs: &simple-args
   moneyToTransfer: 100
   numberOfAccounts: &number-of-accounts 100
   n: 1000  
-  txNumber: &total 50000
+  txNumber: &total 5000
   tps: &tps 1000 
   load: &load 10
 
@@ -16,24 +16,33 @@ test:
     type: local
     number: 4
   rounds:
-    - label: set
-      txNumber: *total
-      rateControl:
-        type: fixed-rate
-        opts:
-          tps: *tps
-      workload:
-        module: benchmarks/set.js
-        arguments: *simple-args
+    # - label: set
+    #   txNumber: *total
+    #   rateControl:
+    #     type: fixed-rate
+    #     opts:
+    #       tps: *tps
+    #   workload:
+    #     module: benchmarks/set.js
+    #     arguments: *simple-args
 
-    - label: get
+    # - label: get
+    #   txNumber: *total
+    #   rateControl:
+    #     type: fixed-rate
+    #     opts:
+    #       tps: *tps
+    #   workload:
+    #     module: benchmarks/get.js
+    #     arguments: *simple-args
+    - label: transfer
       txNumber: *total
       rateControl:
         type: fixed-rate
         opts:
           tps: *tps
       workload:
-        module: benchmarks/get.js
+        module: benchmarks/transfer.js
         arguments: *simple-args
     # - label: fib
     #   txNumber: *total

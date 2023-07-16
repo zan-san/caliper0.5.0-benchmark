@@ -1,2 +1,0 @@
-./daemonClose
-sleep 5 

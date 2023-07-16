@@ -132,7 +132,7 @@ class OperationBase extends WorkloadModuleBase {
     _createEthereumConnectorRequest(operation, args) {
         const query = operation === 'query';
         return {
-            contract: 'simple',
+            contract: 'test',
             verb: operation,
             args: Object.keys(args).map(k => args[k]),
             readOnly: query

@@ -128,14 +128,13 @@
                 <li>DLT: &nbsp<span style="font-weight: 500;">ethereum</span></li>
                 <li>Name: &nbsp<span style="font-weight: 500;">simple</span></li>
                 <li>Description: &nbsp<span style="font-weight: 500;">This is an example benchmark for Caliper, to test the backend DLT&#39;s performance with simple account opening &amp; querying transactions.</span></li>
-                <li>Benchmark Rounds: &nbsp<span style="font-weight: 500;">2</span></li>
+                <li>Benchmark Rounds: &nbsp<span style="font-weight: 500;">1</span></li>
                 <li><a href="#benchmarkInfo">Details</a></li>
             </ul>
             <ul>
                 <h3>&nbspBenchmark results</h3>
                 <li><a href="#benchmarksummary">Summary</a></li>
-                    <li><a href="#set">set</a></li>
-                    <li><a href="#get">get</a></li>
+                    <li><a href="#transfer">transfer</a></li>
             </ul>
             <ul>
                 <h3>&nbspSystem under test</h3>
@@ -153,51 +152,28 @@
                     </tr>
 
                     <tr>
-                         <td>set</td> <td>50000</td> <td>0</td> <td>997.6</td> <td>83.76</td> <td>1.26</td> <td>45.39</td> <td>407.2</td>
-                    </tr>
-                    <tr>
-                         <td>get</td> <td>50000</td> <td>0</td> <td>996.1</td> <td>93.97</td> <td>1.52</td> <td>45.15</td> <td>393.1</td>
+                         <td>transfer</td> <td>5000</td> <td>0</td> <td>965.8</td> <td>19.05</td> <td>1.11</td> <td>9.33</td> <td>255.6</td>
                     </tr>
                 </table>
             </div>
-            <div style="border-bottom: 1px solid #d9d9d9; padding-bottom: 10px;" id="set">
-                <h2>Benchmark round: set</h2>
+            <div style="border-bottom: 1px solid #d9d9d9; padding-bottom: 10px;" id="transfer">
+                <h2>Benchmark round: transfer</h2>
                 <p></p>
                 <pre style="overflow: visible;white-space: pre-wrap;max-height:100%;">rateControl:
   type: fixed-rate
   opts:
     tps: 1000
 </pre>
-                        <h3>Performance metrics for set</h3>
+                        <h3>Performance metrics for transfer</h3>
                             <table style="min-width: 100%;">
                                 <tr>
                                      <th>Name</th> <th>Succ</th> <th>Fail</th> <th>Send Rate (TPS)</th> <th>Max Latency (s)</th> <th>Min Latency (s)</th> <th>Avg Latency (s)</th> <th>Throughput (TPS)</th>
                                 </tr>
                                 <tr>
-                                     <td>set</td> <td>50000</td> <td>0</td> <td>997.6</td> <td>83.76</td> <td>1.26</td> <td>45.39</td> <td>407.2</td>
+                                     <td>transfer</td> <td>5000</td> <td>0</td> <td>965.8</td> <td>19.05</td> <td>1.11</td> <td>9.33</td> <td>255.6</td>
                                 </tr>
                             </table>
-                        <h3>Resource utilization for set</h3>
-            </div>
-
-            <div style="border-bottom: 1px solid #d9d9d9; padding-bottom: 10px;" id="get">
-                <h2>Benchmark round: get</h2>
-                <p></p>
-                <pre style="overflow: visible;white-space: pre-wrap;max-height:100%;">rateControl:
-  type: fixed-rate
-  opts:
-    tps: 1000
-</pre>
-                        <h3>Performance metrics for get</h3>
-                            <table style="min-width: 100%;">
-                                <tr>
-                                     <th>Name</th> <th>Succ</th> <th>Fail</th> <th>Send Rate (TPS)</th> <th>Max Latency (s)</th> <th>Min Latency (s)</th> <th>Avg Latency (s)</th> <th>Throughput (TPS)</th>
-                                </tr>
-                                <tr>
-                                     <td>get</td> <td>50000</td> <td>0</td> <td>996.1</td> <td>93.97</td> <td>1.52</td> <td>45.15</td> <td>393.1</td>
-                                </tr>
-                            </table>
-                        <h3>Resource utilization for get</h3>
+                        <h3>Resource utilization for transfer</h3>
             </div>
 
             <div style="border-bottom: 1px solid #d9d9d9; padding-bottom: 10px;">
@@ -211,36 +187,20 @@ workers:
   type: local
   number: 4
 rounds:
-  - label: set
-    txNumber: 50000
+  - label: transfer
+    txNumber: 5000
     rateControl:
       type: fixed-rate
       opts:
         tps: 1000
     workload:
-      module: benchmarks&#x2F;set.js
+      module: benchmarks&#x2F;transfer.js
       arguments:
         initialMoney: 10000
         moneyToTransfer: 100
         numberOfAccounts: 100
         &#39;n&#39;: 1000
-        txNumber: 50000
-        tps: 1000
-        load: 10
-  - label: get
-    txNumber: 50000
-    rateControl:
-      type: fixed-rate
-      opts:
-        tps: 1000
-    workload:
-      module: benchmarks&#x2F;get.js
-      arguments:
-        initialMoney: 10000
-        moneyToTransfer: 100
-        numberOfAccounts: 100
-        &#39;n&#39;: 1000
-        txNumber: 50000
+        txNumber: 5000
         tps: 1000
         load: 10
 </pre>
