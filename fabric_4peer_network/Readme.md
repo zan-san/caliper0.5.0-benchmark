@@ -49,7 +49,7 @@ workdir
 command
 binding fabric STU
 ```
-npx caliper bind --caliper-bind-sut fabric --caliper-bind-sdk 2.2.0
+npx caliper bind --caliper-bind-sut fabric:2.2
 
 ```
 run caliper benchmark

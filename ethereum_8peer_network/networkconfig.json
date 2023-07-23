@@ -1,0 +1,104 @@
+{
+    "caliper": {
+        "blockchain": "ethereum",
+        "command" : {
+            "start": "",
+            "end" : ""
+          }
+    },
+    "ethereum": {
+        "url": "ws://localhost:3334",
+        "contractDeployerAddress": "0x0a11877ef32676200124e20fdf5baa5a00bf1a7f",
+        "contractDeployerAddressPassword": "password",
+        "fromAddress": "0x0a11877ef32676200124e20fdf5baa5a00bf1a7f",
+        "fromAddressPassword": "password",
+        "transactionConfirmationBlocks": 2,
+        "contracts": {
+            "test": {
+                "path": "contracts/test.json",
+
+                "gas": {
+                    "add": 70000,
+                    "mul": 70000,
+                    "div": 70000,
+                    "get": 70000,
+                    "set": 70000,
+                    "transferAsset":70000
+                },
+                "abi": [        
+                        {
+                        "inputs": [
+                            {
+                                "internalType": "uint256",
+                                "name": "n",
+                                "type": "uint256"
+                            }
+                        ],
+                        "name": "add",
+                        "outputs": [
+                            {
+                                "internalType": "uint256",
+                                "name": "",
+                                "type": "uint256"
+                            }
+                        ],
+                        "stateMutability": "pure",
+                        "type": "function"
+                        },
+                        {
+                            "inputs": [
+                                {
+                                    "internalType": "uint256",
+                                    "name": "n",
+                                    "type": "uint256"
+                                }
+                            ],
+                            "name": "get",
+                            "outputs": [
+                                {
+                                    "internalType": "string",
+                                    "name": "",
+                                    "type": "string"
+                                }
+                            ],
+                            "stateMutability": "view",
+                            "type": "function"
+                        },
+                        {
+                            "inputs": [
+                                {
+                                    "internalType": "string",
+                                    "name": "str",
+                                    "type": "string"
+                                }
+                            ],
+                            "name": "set",
+                            "outputs": [],
+                            "stateMutability": "nonpayable",
+                            "type": "function"
+                        },
+                        {
+                            "inputs":
+                            [
+                              {
+                                "internalType": "string",
+                                "name": "sender",
+                                "type": "string"
+                              },
+                              {
+                                "internalType": "string",
+                                "name": "receiver",
+                                "type": "string"
+                              }
+                            ],
+                            "name": "transferAsset",
+                            "outputs": [],
+                            "stateMutability": "nonpayable",
+                            "type": "function"
+                          }
+                ],
+                "address": "0x0a11877ef32676200124e20fdf5baa5a00bf1a7f"
+            }
+        }
+    }
+}

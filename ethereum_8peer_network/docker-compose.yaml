@@ -1,0 +1,227 @@
+
+version: "3"
+
+services:
+  bootnode:
+    image: ethereum/client-go:alltools-v1.11.6
+    container_name: bootnode
+    volumes:
+      - ./boot.key:/root/boot.key
+    network_mode: host
+    command: 
+      - bootnode
+      - --nodekey=root/boot.key 
+      - --addr=:30305
+
+
+  node1:
+    image: ethereum/client-go:alltools-v1.11.6
+    container_name: node1
+    volumes:
+      - ./node1:/root/node1
+    network_mode: host
+    command:
+      - geth
+      - --datadir=/root/node1
+      - --port=8101
+      - --bootnodes=enode://f27d2c9fc659061f6f05907f7e7e1134211945bc3054c74c82f736582332300de7e7264d16873f0b39ae29b0eadd59dd3eb0040ab83a7b32c8f1f11898838227@127.0.0.1:0?discport=30305
+      - --networkid=123123
+      - --unlock=0x0a11877ef32676200124e20fdf5baa5a00bf1a7f
+      - --authrpc.port=11111
+      - --password=/root/node1/keystore/password
+
+      - --ws
+      - --ws.port=3334
+      - --ws.api=admin,eth,miner,personal,web3 
+
+      - --mine 
+      - --miner.threads=2 
+      - --miner.etherbase=0x0a11877ef32676200124e20fdf5baa5a00bf1a7f
+      - --miner.gasprice=1 
+
+      - --allow-insecure-unlock 
+    depends_on:
+      - bootnode
+
+
+  node2:
+    image: ethereum/client-go:alltools-v1.11.6
+    container_name: node2
+    volumes:
+      - ./node2:/root/node2
+    network_mode: host
+    command:
+      - geth
+      - --datadir=/root/node2
+      - --port=8102
+      - --bootnodes=enode://f27d2c9fc659061f6f05907f7e7e1134211945bc3054c74c82f736582332300de7e7264d16873f0b39ae29b0eadd59dd3eb0040ab83a7b32c8f1f11898838227@127.0.0.1:0?discport=30305
+      - --networkid=123123
+      - --unlock=0x4c1e770dbbe8c20ec81f93c30aca3d26aa7dc7c5
+      - --authrpc.port=11112
+      - --password=/root/node2/keystore/password
+
+      - --ws
+      - --ws.port=3335
+      - --ws.api=admin,eth,miner,personal,web3 
+
+      - --allow-insecure-unlock 
+    depends_on:
+      - bootnode
+      - node1
+
+
+  node3:
+    image: ethereum/client-go:alltools-v1.11.6
+    container_name: node3
+    volumes:
+      - ./node3:/root/node3
+    network_mode: host
+    command:
+      - geth
+      - --datadir=/root/node3
+      - --port=8103
+      - --bootnodes=enode://f27d2c9fc659061f6f05907f7e7e1134211945bc3054c74c82f736582332300de7e7264d16873f0b39ae29b0eadd59dd3eb0040ab83a7b32c8f1f11898838227@127.0.0.1:0?discport=30305
+      - --networkid=123123
+      - --unlock=0x690c540f9981f6f55b0991ffe2420dfa28ab8cfa
+      - --authrpc.port=11113
+      - --password=/root/node3/keystore/password
+
+      - --ws
+      - --ws.port=3336
+      - --ws.api=admin,eth,miner,personal,web3 
+
+      - --allow-insecure-unlock 
+    depends_on:
+      - bootnode
+      - node2
+
+
+  node4:
+    image: ethereum/client-go:alltools-v1.11.6
+    container_name: node4
+    volumes:
+      - ./node4:/root/node4
+    network_mode: host
+    command:
+      - geth
+      - --datadir=/root/node4
+      - --port=8104
+      - --bootnodes=enode://f27d2c9fc659061f6f05907f7e7e1134211945bc3054c74c82f736582332300de7e7264d16873f0b39ae29b0eadd59dd3eb0040ab83a7b32c8f1f11898838227@127.0.0.1:0?discport=30305
+      - --networkid=123123
+      - --unlock=0xd3ef1c7f4d03ca58cf70e4e964d9c1b6af8055ce
+      - --authrpc.port=11114
+      - --password=/root/node4/keystore/password
+
+      - --ws
+      - --ws.port=3337
+      - --ws.api=admin,eth,miner,personal,web3 
+
+      - --allow-insecure-unlock 
+    depends_on:
+      - bootnode
+      - node3
+
+
+  node5:
+    image: ethereum/client-go:alltools-v1.11.6
+    container_name: node5
+    volumes:
+      - ./node5:/root/node5
+    network_mode: host
+    command:
+      - geth
+      - --datadir=/root/node5
+      - --port=8105
+      - --bootnodes=enode://f27d2c9fc659061f6f05907f7e7e1134211945bc3054c74c82f736582332300de7e7264d16873f0b39ae29b0eadd59dd3eb0040ab83a7b32c8f1f11898838227@127.0.0.1:0?discport=30305
+      - --networkid=123123
+      - --unlock=0xab2dcb168130649a1c9b35e5876e09dc06a7f73f
+      - --authrpc.port=11115
+      - --password=/root/node5/keystore/password
+
+      - --ws
+      - --ws.port=3338
+      - --ws.api=admin,eth,miner,personal,web3 
+
+      - --allow-insecure-unlock 
+    depends_on:
+      - bootnode
+      - node4
+
+
+  node6:
+    image: ethereum/client-go:alltools-v1.11.6
+    container_name: node6
+    volumes:
+      - ./node6:/root/node6
+    network_mode: host
+    command:
+      - geth
+      - --datadir=/root/node6
+      - --port=8106
+      - --bootnodes=enode://f27d2c9fc659061f6f05907f7e7e1134211945bc3054c74c82f736582332300de7e7264d16873f0b39ae29b0eadd59dd3eb0040ab83a7b32c8f1f11898838227@127.0.0.1:0?discport=30305
+      - --networkid=123123
+      - --unlock=0x1799b3dd14b4f5c4f176979287cbfff27fef995f
+      - --authrpc.port=11116
+      - --password=/root/node6/keystore/password
+
+      - --ws
+      - --ws.port=3339
+      - --ws.api=admin,eth,miner,personal,web3 
+
+      - --allow-insecure-unlock 
+    depends_on:
+      - bootnode
+      - node5
+
+
+  node7:
+    image: ethereum/client-go:alltools-v1.11.6
+    container_name: node7
+    volumes:
+      - ./node7:/root/node7
+    network_mode: host
+    command:
+      - geth
+      - --datadir=/root/node7
+      - --port=8107
+      - --bootnodes=enode://f27d2c9fc659061f6f05907f7e7e1134211945bc3054c74c82f736582332300de7e7264d16873f0b39ae29b0eadd59dd3eb0040ab83a7b32c8f1f11898838227@127.0.0.1:0?discport=30305
+      - --networkid=123123
+      - --unlock=0xaface88093cbdf07ee690264f184421d6137c0c8
+      - --authrpc.port=11117
+      - --password=/root/node7/keystore/password
+
+      - --ws
+      - --ws.port=3340
+      - --ws.api=admin,eth,miner,personal,web3 
+
+      - --allow-insecure-unlock 
+    depends_on:
+      - bootnode
+      - node6
+
+
+  node8:
+    image: ethereum/client-go:alltools-v1.11.6
+    container_name: node8
+    volumes:
+      - ./node8:/root/node8
+    network_mode: host
+    command:
+      - geth
+      - --datadir=/root/node8
+      - --port=8108
+      - --bootnodes=enode://f27d2c9fc659061f6f05907f7e7e1134211945bc3054c74c82f736582332300de7e7264d16873f0b39ae29b0eadd59dd3eb0040ab83a7b32c8f1f11898838227@127.0.0.1:0?discport=30305
+      - --networkid=123123
+      - --unlock=0x04960e6a54f613e167c959ee3163e7657e868e1b
+      - --authrpc.port=11118
+      - --password=/root/node8/keystore/password
+
+      - --ws
+      - --ws.port=3341
+      - --ws.api=admin,eth,miner,personal,web3 
+
+      - --allow-insecure-unlock 
+    depends_on:
+      - bootnode
+      - node7
+

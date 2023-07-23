@@ -154,9 +154,26 @@ peer lifecycle chaincode commit -o orderer.aaa.com:7050 \
 
 peer chaincode invoke -o orderer.aaa.com:7050 --ordererTLSHostnameOverride orderer.aaa.com --tls true --cafile \
 /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/aaa.com/orderers/orderer.aaa.com/msp/tlscacerts/tlsca.aaa.com-cert.pem \
--C app-channel -n base --peerAddresses peer0.org1.aaa.com:7051 \
+-C app-channel -n base \
+--peerAddresses peer0.org1.aaa.com:7051 \
 --tlsRootCertFiles /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.aaa.com/peers/peer0.org1.aaa.com/tls/ca.crt \
--c '{"Args":["Set","3"]}'
+--peerAddresses peer0.org2.aaa.com:7061 \
+--tlsRootCertFiles /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org2.aaa.com/peers/peer0.org2.aaa.com/tls/ca.crt \
+--peerAddresses peer0.org3.aaa.com:7071 \
+--tlsRootCertFiles /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org3.aaa.com/peers/peer0.org3.aaa.com/tls/ca.crt \
+--peerAddresses peer0.org4.aaa.com:7081 \
+--tlsRootCertFiles /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org4.aaa.com/peers/peer0.org4.aaa.com/tls/ca.crt \
+-c '{"Args":["Set","5"]}'
 
 
 peer chaincode query -C app-channel -n base -c '{"Args":["Get"]}'
+
+peer chaincode invoke -o orderer.aaa.com:7050 --ordererTLSHostnameOverride orderer.aaa.com --tls true --cafile \
+/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/aaa.com/orderers/orderer.aaa.com/msp/tlscacerts/tlsca.aaa.com-cert.pem \
+-C app-channel -n base --peerAddresses peer0.org1.aaa.com:7051 --tlsRootCertFiles \
+/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.aaa.com/peers/peer0.org1.aaa.com/tls/ca.crt \
+--peerAddresses peer0.org2.aaa.com:7051 --tlsRootCertFiles \
+/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org2.aaa.com/peers/peer0.org2.aaa.com/tls/ca.crt \
+--peerAddresses peer0.org3.aaa.com:7051 --tlsRootCertFiles \
+/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org3.aaa.com/peers/peer0.org3.aaa.com/tls/ca.crt \
+-c '{"Args":["Set","3"]}'

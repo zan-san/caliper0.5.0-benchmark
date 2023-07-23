@@ -1,0 +1,97 @@
+simpleArgs: &simple-args
+  initialMoney: 10000
+  moneyToTransfer: 100
+  numberOfAccounts: &number-of-accounts 100
+  n: 1000  
+  txNumber: &total 5000
+  tps: &tps 1000 
+  load: &load 10
+
+test:
+  name: simple
+  description: >-
+    This is an example benchmark for Caliper, to test the backend DLT's
+    performance with simple account opening & querying transactions.
+  workers:
+    type: local
+    number: 4
+  rounds:
+    - label: set
+      txNumber: *total
+      rateControl:
+        type: fixed-rate
+        opts:
+          tps: *tps
+      workload:
+        module: benchmarks/set.js
+        arguments: *simple-args
+
+    - label: get
+      txNumber: *total
+      rateControl:
+        type: fixed-rate
+        opts:
+          tps: *tps
+      workload:
+        module: benchmarks/get.js
+        arguments: *simple-args
+    - label: transfer
+      txNumber: *total
+      rateControl:
+        type: fixed-rate
+        opts:
+          tps: *tps
+      workload:
+        module: benchmarks/transfer.js
+        arguments: *simple-args
+    # - label: fib
+    #   txNumber: *total
+    #   rateControl:
+    #     type: fixed-rate
+    #     opts:
+    #       tps: *tps
+    #   workload:
+    #     module: benchmarks/fib.js
+    #     arguments: *simple-args   
+
+    # - label: add
+    #   txNumber: *total
+    #   rateControl:
+    #     type: fixed-rate
+    #     opts:
+    #       tps: *tps
+    #   workload:
+    #     module: benchmarks/add.js
+    #     arguments: *simple-args
+
+    # - label: mul
+    #   txNumber: *total
+    #   rateControl:
+    #     type: fixed-rate
+    #     opts:
+    #       tps: *tps
+    #   workload:
+    #     module: benchmarks/mul.js
+    #     arguments: *simple-args
+
+    # - label: dev
+    #   description: >-
+    #     Test Dev
+    #   txNumber: *total
+    #   rateControl:
+    #     type: fixed-rate
+    #     opts:
+    #       tps: *tps
+    #   workload:
+    #     module: benchmarks/div.js
+    #     arguments: *simple-args
+
+    # - label: regester
+    #   txNumber: *total
+    #   rateControl:
+    #     type: fixed-rate
+    #     opts:
+    #       tps: *tps
+    #   workload:
+    #     module: benchmarks/regester.js
+    #     arguments: *simple-args
