@@ -12,7 +12,7 @@ run caliper benchmark
 
 ```
 npx caliper launch manager \
---caliper-workspace fisco-bcos_config_generate/fisco-bcos_8peer_network \
+--caliper-workspace fisco-bcos_config_generate/fisco-bcos_4peer_network \
 --caliper-benchconfig benchconfig.yaml \
 --caliper-networkconfig networkconfig.json \
 --caliper-fabric-gateway-enabled \

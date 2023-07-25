@@ -1,0 +1,266 @@
+info|2023-07-24 15:38:32.620661|[INITIALIZER][initGlobalConfig],enableCompress=true,compatibilityVersion=2.9.1,versionNumber=34144512,enableStat=false,chainId=1,useSMCrypto=false
+info|2023-07-24 15:38:32.734416|[INITIALIZER][SecureInitializer]loading privateKey
+info|2023-07-24 15:38:32.745040|[INITIALIZER][SecureInitializer]get pub of node,nodeID=ed047de6acf911b2256ebcca8573d4f598dbdfaac0f782951308f560904552a7862fb499c1b941c3007aa352aa0d452fcc547ef1198c5f903ce93223346eab8d
+info|2023-07-24 15:38:32.871598|[INITIALIZER][SecureInitializer]use user certificate,file=conf//node.crt
+info|2023-07-24 15:38:32.940292|[INITIALIZER][SecureInitializer]use ca certificate,file=conf//ca.crt
+info|2023-07-24 15:38:32.940372|[INITIALIZER][SecureInitializer]use ca,file=conf//
+info|2023-07-24 15:38:32.940406|[INITIALIZER][SecureInitializer][initChannelCertConfig]enable rsa cert for channel ,conf//channel_cert/ certs will be used for channel ssl,dataPath=conf/
+info|2023-07-24 15:38:33.119098|[NETWORK][Host]Connecting to node,endpoint=127.0.0.1:30300
+info|2023-07-24 15:38:33.119172|[NETWORK][Host]P2P StartAccept,Host=0.0.0.0:30302
+info|2023-07-24 15:38:33.119234|[NETWORK][Host]Connecting to node,endpoint=127.0.0.1:30301
+info|2023-07-24 15:38:33.119268|[NETWORK][Host]Connecting to node,endpoint=127.0.0.1:30302
+info|2023-07-24 15:38:33.119302|[NETWORK][Host]Connecting to node,endpoint=127.0.0.1:30303
+info|2023-07-24 15:38:33.119348|[P2P][Service] heartBeat,connected count=0
+info|2023-07-24 15:38:33.119373|[INITIALIZER][RPCInitializer],network_security.check_cert_issuer=true
+info|2023-07-24 15:38:33.119433|[NETWORK][ASIO]asyncResolveConnect,endpoint=127.0.0.1:30300
+info|2023-07-24 15:38:33.119544|[NETWORK][ASIO]asyncResolveConnect,endpoint=127.0.0.1:30301
+info|2023-07-24 15:38:33.119664|[NETWORK][ASIO]asyncResolveConnect,endpoint=127.0.0.1:30302
+info|2023-07-24 15:38:33.119780|[NETWORK][ASIO]asyncResolveConnect,endpoint=127.0.0.1:30303
+error|2023-07-24 15:38:33.119811|[NETWORK][Host]TCP Connection refused by node,endpoint=127.0.0.1:30300,message=Connection refused
+error|2023-07-24 15:38:33.119885|[NETWORK][Host]TCP Connection refused by node,endpoint=127.0.0.1:30301,message=Connection refused
+warning|2023-07-24 15:38:33.119938|[P2P][Service] onConnect,errorCode=5,nodeID=00000000...,nodeName=,endpoint=unknown,what=Connect failed
+warning|2023-07-24 15:38:33.119995|[P2P][Service] onConnect,errorCode=5,nodeID=00000000...,nodeName=,endpoint=unknown,what=Connect failed
+info|2023-07-24 15:38:33.120124|[CHANNEL][ChannelServer::run],threadPoolSize=8
+info|2023-07-24 15:38:33.120169|[CHANNEL]ChannelRPCServer started
+info|2023-07-24 15:38:33.120177|[INITIALIZER][RPCInitializer: ChannelRPCHttpServer started.],disableDynamicGroup=false,threadSize=8
+info|2023-07-24 15:38:33.120183|[INITIALIZER][LedgerInitializer]initConfig
+info|2023-07-24 15:38:33.120192|[LedgerInitializer],groupConfigPath=conf/
+info|2023-07-24 15:38:33.120202|[NETWORK][Host]P2P Recv Connect, From=127.0.0.1:46414
+info|2023-07-24 15:38:33.120273|[NETWORK][Host]P2P StartAccept,Host=0.0.0.0:30302
+error|2023-07-24 15:38:33.120344|[NETWORK][Host]TCP Connection refused by node,endpoint=127.0.0.1:30303,message=Connection refused
+warning|2023-07-24 15:38:33.120427|[P2P][Service] onConnect,errorCode=5,nodeID=00000000...,nodeName=,endpoint=unknown,what=Connect failed
+error|2023-07-24 15:38:33.122541|[NETWORK][Host]Get ca basic failed
+info|2023-07-24 15:38:33.131330|[NETWORK][Host]P2P Recv Connect, From=127.0.0.1:46416
+info|2023-07-24 15:38:33.131415|[NETWORK][Host]P2P StartAccept,Host=0.0.0.0:30302
+error|2023-07-24 15:38:33.131942|[NETWORK][Host]Get ca basic failed
+info|2023-07-24 15:38:33.134838|[NETWORK][Host]P2P Recv Connect, From=127.0.0.1:46418
+info|2023-07-24 15:38:33.134866|[NETWORK][Host]P2P StartAccept,Host=0.0.0.0:30302
+info|2023-07-24 15:38:33.134913|[NETWORK][Host]handshakeServer succ,remote endpoint=127.0.0.1:46414
+info|2023-07-24 15:38:33.134931|[NETWORK][Host]startPeerSession, Remote=127.0.0.1:46414,local endpoint=127.0.0.1:30302,nodeID=ed047de6...
+info|2023-07-24 15:38:33.134994|[NETWORK][Host]handshakeClient succ,local endpoint=127.0.0.1:46414
+info|2023-07-24 15:38:33.135011|[NETWORK][Host]startPeerSession, Remote=127.0.0.1:30302,local endpoint=127.0.0.1:46414,nodeID=ed047de6...
+error|2023-07-24 15:38:33.139590|[NETWORK][Host]Get ca basic failed
+info|2023-07-24 15:38:33.141824|[NETWORK][Host]handshakeServer succ,remote endpoint=127.0.0.1:46416
+info|2023-07-24 15:38:33.141848|[NETWORK][Host]startPeerSession, Remote=127.0.0.1:46416,local endpoint=127.0.0.1:30302,nodeID=028b8765...
+info|2023-07-24 15:38:33.141922|[P2P][Service] Connection established,nodeID=028b8765...,endpoint=127.0.0.1:46416
+error|2023-07-24 15:38:33.142009|[NETWORK][Host]Get ca basic failed
+info|2023-07-24 15:38:33.144283|[NETWORK][Host]handshakeServer succ,remote endpoint=127.0.0.1:46418
+info|2023-07-24 15:38:33.144303|[NETWORK][Host]startPeerSession, Remote=127.0.0.1:46418,local endpoint=127.0.0.1:30302,nodeID=0b1649ae...
+info|2023-07-24 15:38:33.144380|[P2P][Service] Connection established,nodeID=0b1649ae...,endpoint=127.0.0.1:46418
+info|2023-07-24 15:38:33.159157|[INITIALIZER][initSingleLedger] [GroupId], LedgerConstructor:  1,configFileName=conf/group.1.genesis,dataDir=data/
+info|2023-07-24 15:38:33.159227|[g:1][LedgerParam][parseGenesisConfig]initConsensusConfig/initStorageConfig/initTxConfig,configFile=conf/group.1.genesis
+info|2023-07-24 15:38:33.159245|[g:1][LedgerParam][initConsensusConfig],type=pbft,consensusTimeout=3,maxTxNum=1000,txGasLimit=300000000
+info|2023-07-24 15:38:33.159259|[g:1][LedgerParam][parsePublicKeyListOfSection],sectionName=consensus,it.first=cf706cf50692e765d10c99fedefd6ef3ee1e1a6bfd647eb6c77583afc05495dd4e66213f1852f36e368409f82ba4081815155fb9ea31af0fbd9bd430e5305563
+info|2023-07-24 15:38:33.159270|[g:1][LedgerParam][parsePublicKeyListOfSection],sectionName=consensus,it.first=028b876568da6141670968c03d92e8b4716ccf0c1ddbf3a46d05df0e9e1eab5bc739bac7dc7c72425852b47408a4eaa0621abd319a0d1024d9c5816dbfe2564a
+info|2023-07-24 15:38:33.159278|[g:1][LedgerParam][parsePublicKeyListOfSection],sectionName=consensus,it.first=ed047de6acf911b2256ebcca8573d4f598dbdfaac0f782951308f560904552a7862fb499c1b941c3007aa352aa0d452fcc547ef1198c5f903ce93223346eab8d
+info|2023-07-24 15:38:33.159288|[g:1][LedgerParam][parsePublicKeyListOfSection],sectionName=consensus,it.first=0b1649ae36f7f5b767286d33624c534b8dd5a8ba6dbd97c99e15ce815d77f31a7adbb9e22dac5a473aef816698d70c4daff8cd49dfa87f0faa3a0b5445f20250
+info|2023-07-24 15:38:33.159300|[g:1][LedgerParam][parsePublicKeyListOfSection],totalPubKeySize=4
+info|2023-07-24 15:38:33.159327|[g:1][LedgerParam][max_block_range],maxBlockRange=0,maxBlockPerProcess=3
+info|2023-07-24 15:38:33.159334|[g:1][LedgerParam][parseGenesisConfig],timestamp=1688028309000
+info|2023-07-24 15:38:33.159343|[g:1][LedgerParam]setEVMFlags,enableFreeStorageVMSchedule=false,evmFlags=0
+info|2023-07-24 15:38:33.159355|[g:1][LedgerParam]store evmFlag,evmFlag=0
+info|2023-07-24 15:38:33.159359|[g:1][LedgerParam]store consensus time,consensusTimeout=3
+info|2023-07-24 15:38:33.159363|[g:1][LedgerParam][initMark],genesisMark=1-028b876568da6141670968c03d92e8b4716ccf0c1ddbf3a46d05df0e9e1eab5bc739bac7dc7c72425852b47408a4eaa0621abd319a0d1024d9c5816dbfe2564a,0b1649ae36f7f5b767286d33624c534b8dd5a8ba6dbd97c99e15ce815d77f31a7adbb9e22dac5a473aef816698d70c4daff8cd49dfa87f0faa3a0b5445f20250,cf706cf50692e765d10c99fedefd6ef3ee1e1a6bfd647eb6c77583afc05495dd4e66213f1852f36e368409f82ba4081815155fb9ea31af0fbd9bd430e5305563,ed047de6acf911b2256ebcca8573d4f598dbdfaac0f782951308f560904552a7862fb499c1b941c3007aa352aa0d452fcc547ef1198c5f903ce93223346eab8d,-pbft-storage-0-1000-300000000-3
+info|2023-07-24 15:38:33.159374|[g:1][LedgerParam][initIniConfig]initTxPoolConfig/initSyncConfig/initTxExecuteConfig,configFile=conf/group.1.ini
+info|2023-07-24 15:38:33.160687|[g:1][LedgerParam][initStorageConfig],stateType=storage,storageDB=rocksdb,storagePath=data//group1/block/RocksDB,baseDir=data//group1,dbtype=mysql,dbip=127.0.0.1,dbport=3306,dbcharset=utf8mb4,initconnections=15,maxconnections=50,scrollThreshold=2000
+info|2023-07-24 15:38:33.160705|[g:1][LedgerParam][initTxPoolConfig],txPoolLimit=150000,memorySizeLimit(MB)=512,notifyWorkerNum=2,txsExpirationTime(ms)=600000
+info|2023-07-24 15:38:33.160712|[g:1][LedgerParam][initSyncConfig],idleWaitMs=200
+info|2023-07-24 15:38:33.160719|[g:1][LedgerParam][initSyncConfig],enableSendTxsByTree=true,enableSendBlockStatusByTree=true
+info|2023-07-24 15:38:33.160726|[g:1][LedgerParam][initSyncConfig],gossipInterval=1000
+info|2023-07-24 15:38:33.160736|[g:1][LedgerParam][initSyncConfig],enableSendBlockStatusByTree=true,gossipInterval=1000,gossipPeers=3,syncTreeWidth=3,maxQueueSizeForBlockSync=536870912,txsStatusGossipMaxPeers=5
+info|2023-07-24 15:38:33.160741|[g:1][LedgerParam][InitTxExecuteConfig],enableParallel=true
+info|2023-07-24 15:38:33.160754|[g:1][LedgerParam][initConsensusIniConfig],maxTTL=2,minBlockGenerationTime=500,enablDynamicBlockSize=true,blockSizeIncreaseRatio=0.5,enableTTLOptimize=true,enablePrepareWithTxsHash=true
+info|2023-07-24 15:38:33.160785|[g:1][LedgerParam][initRPBFTConsensusIniConfig],broadcastPrepareByTree=true,prepareStatusBroadcastPercent=33,maxRequestMissedTxsWaitTime=100,maxRequestPrepareWaitTime=100
+info|2023-07-24 15:38:33.160798|[g:1][LedgerParam][initFlowControlConfig],maxQPS=9223372036854775807,outGoingBandwidth(Bytes)=9223372036854775807
+info|2023-07-24 15:38:33.160807|[g:1][LedgerParam]parseSDKAllowList,sdkAllowList=[],enableSDKAllowListControl=false
+info|2023-07-24 15:38:33.160827|[g:1][LEDGER][initLedger][DBInitializer]
+info|2023-07-24 15:38:33.160831|[g:1][LEDGER]setSDKAllowList,groupId=1,sdkAllowListSize=0
+info|2023-07-24 15:38:33.160844|[g:1][CHANNEL]registerSDKAllowListByGroupId,groupId=1,size=0
+info|2023-07-24 15:38:33.160849|[g:1][CHANNEL]Disable group-level sdk permission control for sdk allowlist is empty
+info|2023-07-24 15:38:33.160853|[g:1][DBINITIALIZER] [initStorageDB]
+info|2023-07-24 15:38:33.160857|[g:1][DBINITIALIZER] [initRocksDBStorage]
+info|2023-07-24 15:38:33.160878|[g:1][ROCKSDB]open rocksDB handler,path=data//group1/block/RocksDB
+info|2023-07-24 15:38:33.309476|[g:1][g:1][STORAGE][CachedStorage]Init flushStorage thread
+info|2023-07-24 15:38:33.309682|[g:1][DBINITIALIZER] [init CachedStorage],maxCapacity=32,maxForwardBlock=10
+info|2023-07-24 15:38:33.309706|[g:1][LEDGER][initLedger][initBlockChain]
+info|2023-07-24 15:38:33.356895|[g:1][LEDGER]set enableHexBlock to be false,version=34144512
+info|2023-07-24 15:38:33.356911|[g:1][BLOCKCHAIN][#checkAndBuildGenesisBlock],shouldBuild=false
+info|2023-07-24 15:38:33.517674|[NETWORK][Host]P2P Recv Connect, From=127.0.0.1:46420
+info|2023-07-24 15:38:33.517739|[NETWORK][Host]P2P StartAccept,Host=0.0.0.0:30302
+error|2023-07-24 15:38:33.532812|[NETWORK][Host]Get ca basic failed
+info|2023-07-24 15:38:33.536232|[NETWORK][Host]handshakeServer succ,remote endpoint=127.0.0.1:46420
+info|2023-07-24 15:38:33.536262|[NETWORK][Host]startPeerSession, Remote=127.0.0.1:46420,local endpoint=127.0.0.1:30302,nodeID=cf706cf5...
+info|2023-07-24 15:38:33.536351|[P2P][Service] Connection established,nodeID=cf706cf5...,endpoint=127.0.0.1:46420
+info|2023-07-24 15:38:33.545348|[g:1][BLOCKCHAIN][#checkAndBuildGenesisBlock]Already have the 0th block, 0th groupMark is equal to file groupMark.
+info|2023-07-24 15:38:33.545361|[g:1][LEDGER][initLedger]initBlockChain SUCC
+info|2023-07-24 15:38:33.545409|[g:1][DBINITIALIZER] [createStateFactory],type=storage
+info|2023-07-24 15:38:33.545415|[g:1][DBINITIALIZER] createStorageState SUCC
+info|2023-07-24 15:38:33.545420|[g:1][DBINITIALIZER] [createStateFactory SUCC]
+info|2023-07-24 15:38:33.545423|[g:1][DBINITIALIZER] createExecutiveContext...
+info|2023-07-24 15:38:33.545439|[g:1][LEDGER]createGasMetric,vmFlagType=0
+info|2023-07-24 15:38:33.545443|[g:1][LEDGER]createGasMetric
+info|2023-07-24 15:38:33.545449|[g:1][DBINITIALIZER] create precompiledGasFactory and precompiledResultFactory
+info|2023-07-24 15:38:33.545452|[g:1][DBINITIALIZER] createExecutiveContext SUCC
+info|2023-07-24 15:38:33.545456|[g:1][DBINITIALIZER] [setSyncNumForCachedStorage],syncNum=476
+info|2023-07-24 15:38:33.545464|[g:1][LEDGER][initNetworkBandWidthLimiter: outGoingBandwidthLimit has been disabled],groupId=1
+info|2023-07-24 15:38:33.545469|[g:1][LEDGER][QPSLimit has been disabled],groupId=1
+info|2023-07-24 15:38:33.545473|[g:1][LEDGER][initLedger][initBlockVerifier]
+info|2023-07-24 15:38:33.545480|[g:1][LEDGER][initLedger][initBlockVerifier SUCC],evmFlags=0
+info|2023-07-24 15:38:33.545484|[g:1][LEDGER][initLedger][initTxPool],txPoolLimit=150000
+info|2023-07-24 15:38:34.317307|[g:1][LEDGER][initLedger]initTxPool SUCC
+info|2023-07-24 15:38:34.317327|[g:1][LEDGER][initLedger][initSync],idleWaitMs=200,gossipInterval=1000,gossipPeers=3
+info|2023-07-24 15:38:34.317335|[g:1][LEDGER]Init sync master,enableSendBlockStatusByTree=true,enableSendTxsByTree=true
+info|2023-07-24 15:38:34.318658|[g:1][LEDGER][initLedger]initSync SUCC
+info|2023-07-24 15:38:34.318679|[g:1][LEDGER][initLedger][consensusInitFactory]
+info|2023-07-24 15:38:34.318685|[g:1][LEDGER][initLedger][createPBFTSealer]
+info|2023-07-24 15:38:34.318700|[g:1][LEDGER][initLedger][createPBFTSealer],baseDir=data//group1,Protocol=65544
+info|2023-07-24 15:38:34.318738|[g:1][LEDGER][initLedger]createPBFTSealer for PBFT or rPBFT,consensusType=pbft
+info|2023-07-24 15:38:34.318745|[g:1][LEDGER]createConsensusEngine: create PBFTEngine
+info|2023-07-24 15:38:34.318753|[g:1][CONSENSUS][PBFT]Register handler for PBFTEngine
+info|2023-07-24 15:38:34.319609|[g:1][CONSENSUS][PBFT]setMinBlockGenerationTime,minBlockGenerationTime=500,consensusTime=1000
+info|2023-07-24 15:38:34.319623|[g:1][LEDGER][initEventLogFilterManager]initEventLogFilterManager SUCC
+info|2023-07-24 15:38:34.319628|[LedgerInitializer init group succ],groupID=1
+info|2023-07-24 15:38:34.319847|[SafeHttpServer::StartListening]use default epoll
+info|2023-07-24 15:38:34.320185|[INITIALIZER][RPCInitializer JsonrpcHttpServer started],jsonrpc_IP=127.0.0.1,jsonrpc_listen_port=8547,jsonrpc_thread_count=8,ipv6=false,disableDynamicGroup=false
+info|2023-07-24 15:38:34.320161|[g:1][NodeTimeMaintenance]updateTimeInfo: update median time offset,updatedMedianTimeOffset=-1,peer=028b8765...,peerTime=1690184314319,peerOffset=-1,utcTime=1690184314320
+info|2023-07-24 15:38:34.320200|[g:1][LEDGER]startAll...
+info|2023-07-24 15:38:34.320421|[g:1][GossipBlockStatus]start GossipBlockStatus succ
+info|2023-07-24 15:38:34.320436|[g:1][CONSENSUS][ConsensusEngine][Start ConsensusEngineBase]
+info|2023-07-24 15:38:34.320555|[g:1][CONSENSUS][PBFT]^^^^^^^^Report,num=476,sealerIdx=3,hash=1e38cac1...,next=477,tx=969,nodeIdx=3
+info|2023-07-24 15:38:34.320647|[g:1][ROCKSDB]open rocksDB handler,path=data//group1/pbftMsgBackup/RocksDB
+info|2023-07-24 15:38:34.362741|[g:1][NodeTimeMaintenance]updateTimeInfo: update median time offset,updatedMedianTimeOffset=0,peer=cf706cf5...,peerTime=1690184314362,peerOffset=0,utcTime=1690184314362
+info|2023-07-24 15:38:34.366383|[g:1][CONSENSUS][PBFT][PBFT init env successfully]
+info|2023-07-24 15:38:34.366398|[g:1][CONSENSUS][PBFT][Start PBFTEngine...]
+info|2023-07-24 15:38:34.366403|[g:1][CONSENSUS][SEALER][Start sealer module]
+info|2023-07-24 15:38:34.366794|[g:1][EVENT][EventLogFilterManager]start,m_maxBlockRange=0,m_maxBlockPerLoopFilter=3
+info|2023-07-24 15:38:35.178124|[g:1][NodeTimeMaintenance]updateTimeInfo: update median time offset,updatedMedianTimeOffset=-1,peer=0b1649ae...,peerTime=1690184315177,peerOffset=-1,utcTime=1690184315178
+info|2023-07-24 15:38:35.350868|[g:1][CONSENSUS]addRawPrepare,height=477,reqIdx=0,hash=9a2d3d94...,time=0
+info|2023-07-24 15:38:35.351539|[g:1][CONSENSUS][PBFT]checkTimeout Succ,view=0,toView=1,nodeIdx=3,changeCycle=1,myNode=ed047de6...,timecost=1
+info|2023-07-24 15:38:35.352330|[g:1][CONSENSUS][PBFT]checkAndChangeView: Reach consensus,org_view=0,cur_changeCycle=1,curView=0,view=1
+info|2023-07-24 15:38:36.355519|[g:1][CONSENSUS]addRawPrepare,height=477,reqIdx=1,hash=14ed4a47...,time=0
+info|2023-07-24 15:38:36.356232|[g:1][CONSENSUS][PBFT]checkTimeout Succ,view=1,toView=2,nodeIdx=3,changeCycle=1,myNode=ed047de6...,timecost=1
+info|2023-07-24 15:38:36.357838|[g:1][CONSENSUS][PBFT]checkAndChangeView: Reach consensus,org_view=1,cur_changeCycle=1,curView=1,view=2
+info|2023-07-24 15:38:37.359287|[g:1][CONSENSUS]addRawPrepare,height=477,reqIdx=2,hash=9b7ff013...,time=0
+info|2023-07-24 15:38:37.359965|[g:1][CONSENSUS][PBFT]checkTimeout Succ,view=2,toView=3,nodeIdx=3,changeCycle=1,myNode=ed047de6...,timecost=0
+info|2023-07-24 15:38:37.361461|[g:1][CONSENSUS][PBFT]checkAndChangeView: Reach consensus,org_view=2,cur_changeCycle=1,curView=2,view=3
+info|2023-07-24 15:38:38.361595|[g:1][CONSENSUS][SEALER]++++++++++++++++ Generating seal on,blkNum=477,tx=0,nodeIdx=3,hash=bea01a7e...
+info|2023-07-24 15:38:38.362855|[g:1][CONSENSUS][PBFT]checkTimeout Succ,view=3,toView=4,nodeIdx=3,changeCycle=1,myNode=ed047de6...,timecost=0
+info|2023-07-24 15:38:38.365925|[g:1][CONSENSUS][PBFT]checkAndChangeView: Reach consensus,org_view=3,cur_changeCycle=1,curView=3,view=4
+info|2023-07-24 15:38:39.367274|[g:1][CONSENSUS]addRawPrepare,height=477,reqIdx=0,hash=1f4c04d1...,time=0
+info|2023-07-24 15:38:39.367834|[g:1][CONSENSUS][PBFT]checkTimeout Succ,view=4,toView=5,nodeIdx=3,changeCycle=1,myNode=ed047de6...,timecost=0
+info|2023-07-24 15:38:39.368776|[g:1][CONSENSUS][PBFT]checkAndChangeView: Reach consensus,org_view=4,cur_changeCycle=1,curView=4,view=5
+info|2023-07-24 15:38:40.371055|[g:1][CONSENSUS]addRawPrepare,height=477,reqIdx=1,hash=f3a831cf...,time=0
+info|2023-07-24 15:38:40.371411|[g:1][CONSENSUS][PBFT]checkTimeout Succ,view=5,toView=6,nodeIdx=3,changeCycle=1,myNode=ed047de6...,timecost=0
+info|2023-07-24 15:38:40.372451|[g:1][CONSENSUS][PBFT]checkAndChangeView: Reach consensus,org_view=5,cur_changeCycle=1,curView=5,view=6
+info|2023-07-24 15:38:41.374998|[g:1][CONSENSUS]addRawPrepare,height=477,reqIdx=2,hash=51622388...,time=1
+info|2023-07-24 15:38:41.375558|[g:1][CONSENSUS][PBFT]checkTimeout Succ,view=6,toView=7,nodeIdx=3,changeCycle=1,myNode=ed047de6...,timecost=0
+info|2023-07-24 15:38:41.376918|[g:1][CONSENSUS][PBFT]checkAndChangeView: Reach consensus,org_view=6,cur_changeCycle=1,curView=6,view=7
+info|2023-07-24 15:38:42.377107|[g:1][CONSENSUS][SEALER]++++++++++++++++ Generating seal on,blkNum=477,tx=0,nodeIdx=3,hash=2f8cee98...
+info|2023-07-24 15:38:42.378174|[g:1][CONSENSUS][PBFT]checkTimeout Succ,view=7,toView=8,nodeIdx=3,changeCycle=1,myNode=ed047de6...,timecost=1
+info|2023-07-24 15:38:42.381073|[g:1][CONSENSUS][PBFT]checkAndChangeView: Reach consensus,org_view=7,cur_changeCycle=1,curView=7,view=8
+info|2023-07-24 15:38:43.119427|[NETWORK][Host]Connecting to node,endpoint=127.0.0.1:30300
+info|2023-07-24 15:38:43.119583|[NETWORK][Host]Connecting to node,endpoint=127.0.0.1:30301
+info|2023-07-24 15:38:43.119637|[NETWORK][Host]Connecting to node,endpoint=127.0.0.1:30303
+info|2023-07-24 15:38:43.119698|[P2P][Service] heartBeat,connected count=3
+info|2023-07-24 15:38:43.119924|[NETWORK][ASIO]asyncResolveConnect,endpoint=127.0.0.1:30300
+info|2023-07-24 15:38:43.120039|[NETWORK][ASIO]asyncResolveConnect,endpoint=127.0.0.1:30301
+info|2023-07-24 15:38:43.120127|[NETWORK][ASIO]asyncResolveConnect,endpoint=127.0.0.1:30303
+error|2023-07-24 15:38:43.121958|[NETWORK][Host]Get ca basic failed
+error|2023-07-24 15:38:43.130318|[NETWORK][Host]Get ca basic failed
+error|2023-07-24 15:38:43.134732|[NETWORK][Host]Get ca basic failed
+info|2023-07-24 15:38:43.137854|[NETWORK][Host]handshakeClient succ,local endpoint=127.0.0.1:36788
+info|2023-07-24 15:38:43.137881|[NETWORK][Host]startPeerSession, Remote=127.0.0.1:30301,local endpoint=127.0.0.1:36788,nodeID=028b8765...
+info|2023-07-24 15:38:43.140307|[NETWORK][Host]handshakeClient succ,local endpoint=127.0.0.1:47930
+info|2023-07-24 15:38:43.140324|[NETWORK][Host]startPeerSession, Remote=127.0.0.1:30303,local endpoint=127.0.0.1:47930,nodeID=0b1649ae...
+info|2023-07-24 15:38:43.142721|[NETWORK][Host]handshakeClient succ,local endpoint=127.0.0.1:59886
+info|2023-07-24 15:38:43.142742|[NETWORK][Host]startPeerSession, Remote=127.0.0.1:30300,local endpoint=127.0.0.1:59886,nodeID=cf706cf5...
+info|2023-07-24 15:38:43.383860|[g:1][CONSENSUS]addRawPrepare,height=477,reqIdx=0,hash=b77e1434...,time=0
+info|2023-07-24 15:38:43.384370|[g:1][CONSENSUS][PBFT]checkTimeout Succ,view=8,toView=9,nodeIdx=3,changeCycle=1,myNode=ed047de6...,timecost=1
+info|2023-07-24 15:38:43.386685|[g:1][CONSENSUS][PBFT]checkAndChangeView: Reach consensus,org_view=8,cur_changeCycle=1,curView=8,view=9
+info|2023-07-24 15:38:44.387131|[g:1][CONSENSUS]addRawPrepare,height=477,reqIdx=1,hash=f64a2ba6...,time=0
+info|2023-07-24 15:38:44.387669|[g:1][CONSENSUS][PBFT]checkTimeout Succ,view=9,toView=10,nodeIdx=3,changeCycle=1,myNode=ed047de6...,timecost=0
+info|2023-07-24 15:38:44.389041|[g:1][CONSENSUS][PBFT]checkAndChangeView: Reach consensus,org_view=9,cur_changeCycle=1,curView=9,view=10
+info|2023-07-24 15:38:45.391311|[g:1][CONSENSUS]addRawPrepare,height=477,reqIdx=2,hash=da1d9f2c...,time=0
+info|2023-07-24 15:38:45.391898|[g:1][CONSENSUS][PBFT]checkTimeout Succ,view=10,toView=11,nodeIdx=3,changeCycle=1,myNode=ed047de6...,timecost=0
+info|2023-07-24 15:38:45.393263|[g:1][CONSENSUS][PBFT]checkAndChangeView: Reach consensus,org_view=10,cur_changeCycle=1,curView=10,view=11
+info|2023-07-24 15:38:46.393314|[g:1][CONSENSUS][SEALER]++++++++++++++++ Generating seal on,blkNum=477,tx=0,nodeIdx=3,hash=1ce88e74...
+info|2023-07-24 15:38:46.394597|[g:1][CONSENSUS][PBFT]checkTimeout Succ,view=11,toView=12,nodeIdx=3,changeCycle=1,myNode=ed047de6...,timecost=0
+info|2023-07-24 15:38:46.397482|[g:1][CONSENSUS][PBFT]checkAndChangeView: Reach consensus,org_view=11,cur_changeCycle=1,curView=11,view=12
+info|2023-07-24 15:38:47.399128|[g:1][CONSENSUS]addRawPrepare,height=477,reqIdx=0,hash=6a379df2...,time=0
+info|2023-07-24 15:38:47.399821|[g:1][CONSENSUS][PBFT]checkTimeout Succ,view=12,toView=13,nodeIdx=3,changeCycle=1,myNode=ed047de6...,timecost=0
+info|2023-07-24 15:38:47.401363|[g:1][CONSENSUS][PBFT]checkAndChangeView: Reach consensus,org_view=12,cur_changeCycle=1,curView=12,view=13
+info|2023-07-24 15:38:48.403827|[g:1][CONSENSUS]addRawPrepare,height=477,reqIdx=1,hash=9bcdf87d...,time=0
+info|2023-07-24 15:38:48.404473|[g:1][CONSENSUS][PBFT]checkTimeout Succ,view=13,toView=14,nodeIdx=3,changeCycle=1,myNode=ed047de6...,timecost=1
+info|2023-07-24 15:38:48.405668|[g:1][CONSENSUS][PBFT]checkAndChangeView: Reach consensus,org_view=13,cur_changeCycle=1,curView=13,view=14
+info|2023-07-24 15:38:49.407185|[g:1][CONSENSUS]addRawPrepare,height=477,reqIdx=2,hash=b7b10300...,time=0
+info|2023-07-24 15:38:49.407764|[g:1][CONSENSUS][PBFT]checkTimeout Succ,view=14,toView=15,nodeIdx=3,changeCycle=1,myNode=ed047de6...,timecost=0
+info|2023-07-24 15:38:49.408913|[g:1][CONSENSUS][PBFT]checkAndChangeView: Reach consensus,org_view=14,cur_changeCycle=1,curView=14,view=15
+info|2023-07-24 15:38:50.408813|[g:1][CONSENSUS][SEALER]++++++++++++++++ Generating seal on,blkNum=477,tx=0,nodeIdx=3,hash=8afd82e0...
+info|2023-07-24 15:38:50.410018|[g:1][CONSENSUS][PBFT]checkTimeout Succ,view=15,toView=16,nodeIdx=3,changeCycle=1,myNode=ed047de6...,timecost=1
+info|2023-07-24 15:38:50.412533|[g:1][CONSENSUS][PBFT]checkAndChangeView: Reach consensus,org_view=15,cur_changeCycle=1,curView=15,view=16
+info|2023-07-24 15:38:51.414416|[g:1][CONSENSUS]addRawPrepare,height=477,reqIdx=0,hash=7b789392...,time=0
+info|2023-07-24 15:38:51.415014|[g:1][CONSENSUS][PBFT]checkTimeout Succ,view=16,toView=17,nodeIdx=3,changeCycle=1,myNode=ed047de6...,timecost=1
+info|2023-07-24 15:38:51.416433|[g:1][CONSENSUS][PBFT]checkAndChangeView: Reach consensus,org_view=16,cur_changeCycle=1,curView=16,view=17
+info|2023-07-24 15:38:52.418985|[g:1][CONSENSUS]addRawPrepare,height=477,reqIdx=1,hash=6bb30ac4...,time=1
+info|2023-07-24 15:38:52.419583|[g:1][CONSENSUS][PBFT]checkTimeout Succ,view=17,toView=18,nodeIdx=3,changeCycle=1,myNode=ed047de6...,timecost=0
+info|2023-07-24 15:38:52.421027|[g:1][CONSENSUS][PBFT]checkAndChangeView: Reach consensus,org_view=17,cur_changeCycle=1,curView=17,view=18
+info|2023-07-24 15:38:53.119856|[P2P][Service] heartBeat,connected count=3
+info|2023-07-24 15:38:53.421949|[g:1][CONSENSUS]addRawPrepare,height=477,reqIdx=2,hash=9b3fbca4...,time=0
+info|2023-07-24 15:38:53.422573|[g:1][CONSENSUS][PBFT]checkTimeout Succ,view=18,toView=19,nodeIdx=3,changeCycle=1,myNode=ed047de6...,timecost=0
+info|2023-07-24 15:38:53.423993|[g:1][CONSENSUS][PBFT]checkAndChangeView: Reach consensus,org_view=18,cur_changeCycle=1,curView=18,view=19
+info|2023-07-24 15:38:54.424811|[g:1][CONSENSUS][SEALER]++++++++++++++++ Generating seal on,blkNum=477,tx=0,nodeIdx=3,hash=c374705e...
+info|2023-07-24 15:38:54.426026|[g:1][CONSENSUS][PBFT]checkTimeout Succ,view=19,toView=20,nodeIdx=3,changeCycle=1,myNode=ed047de6...,timecost=1
+info|2023-07-24 15:38:54.428825|[g:1][CONSENSUS][PBFT]checkAndChangeView: Reach consensus,org_view=19,cur_changeCycle=1,curView=19,view=20
+info|2023-07-24 15:38:55.430663|[g:1][CONSENSUS]addRawPrepare,height=477,reqIdx=0,hash=58d58182...,time=0
+info|2023-07-24 15:38:55.431329|[g:1][CONSENSUS][PBFT]checkTimeout Succ,view=20,toView=21,nodeIdx=3,changeCycle=1,myNode=ed047de6...,timecost=1
+info|2023-07-24 15:38:55.432645|[g:1][CONSENSUS][PBFT]checkAndChangeView: Reach consensus,org_view=20,cur_changeCycle=1,curView=20,view=21
+info|2023-07-24 15:38:55.887064|[LEDGER]stop sealer,groupID=1
+info|2023-07-24 15:38:55.887106|[CONSENSUS][SEALER]Stop sealer module...
+info|2023-07-24 15:38:55.895178|[CONSENSUS][ConsensusEngine][Stop ConsensusEngineBase]
+info|2023-07-24 15:38:55.898865|[CONSENSUS][ConsensusEngine]ConsensusEngineBase stopped
+info|2023-07-24 15:38:55.898879|[LEDGER]sealer stopped. stop sync,groupID=1
+info|2023-07-24 15:38:55.899217|[g:1] [SYNC][id:ed047de6...]SyncMsgEngine stopped
+info|2023-07-24 15:38:55.930059|[GossipBlockStatus]stop GossipBlockStatus succ
+info|2023-07-24 15:38:56.434287|[SYNC][id:ed047de6...][g:1]SyncMaster stopped
+info|2023-07-24 15:38:56.434329|[LEDGER]sync stopped. stop event filter manager,groupID=1
+info|2023-07-24 15:38:56.482691|[EVENT][EventLogFilterManager]stop
+info|2023-07-24 15:38:56.482718|[LEDGER]event filter manager stopped. stop tx pool,groupID=1
+info|2023-07-24 15:38:56.482936|[LEDGER]removeNetworkStatHandlerByGroupID and removeGroupBandwidthLimiter for service,groupID=1
+info|2023-07-24 15:38:56.482958|[CHANNEL]removeSDKAllowListByGroupId,groupId=1
+info|2023-07-24 15:38:56.482970|[INITIALIZER]ledgerInitializer stopped
+warning|2023-07-24 15:38:57.240733|[NETWORK][Session]doRead error,endpoint=127.0.0.1:46418,message=short read
+info|2023-07-24 15:38:57.240791|[NETWORK][Session]drop, call and erase all callbackFunc in this session!,endpoint=127.0.0.1:46418
+warning|2023-07-24 15:38:57.240823|[NETWORK][Session][drop] closing remote 127.0.0.1:46418,reason=Low-level TCP communication error.,endpoint=127.0.0.1:46418
+warning|2023-07-24 15:38:57.240845|[P2P][Service] disconnect error P2PSession,nodeID=0b1649ae...,endpoint=127.0.0.1:46418,errorCode=3,what=Disconnect
+warning|2023-07-24 15:38:57.240870|[P2P][Service] onDisconnect,errorCode=3,what=Dynamic exception type: dev::network::NetworkException
+std::exception::what: Disconnect
+
+warning|2023-07-24 15:38:57.240988|[NETWORK][Session][drop] shutdown failed ,errorValue=9,message=Bad file descriptor
+warning|2023-07-24 15:38:57.480775|[NETWORK][Session]doRead error,endpoint=127.0.0.1:46416,message=short read
+info|2023-07-24 15:38:57.480821|[NETWORK][Session]drop, call and erase all callbackFunc in this session!,endpoint=127.0.0.1:46416
+warning|2023-07-24 15:38:57.480848|[NETWORK][Session][drop] closing remote 127.0.0.1:46416,reason=Low-level TCP communication error.,endpoint=127.0.0.1:46416
+warning|2023-07-24 15:38:57.480863|[P2P][Service] disconnect error P2PSession,nodeID=028b8765...,endpoint=127.0.0.1:46416,errorCode=3,what=Disconnect
+warning|2023-07-24 15:38:57.480889|[P2P][Service] onDisconnect,errorCode=3,what=Dynamic exception type: dev::network::NetworkException
+std::exception::what: Disconnect
+
+warning|2023-07-24 15:38:57.480994|[NETWORK][Session][drop] shutdown failed ,errorValue=9,message=Bad file descriptor
+info|2023-07-24 15:38:57.483311|[INITIALIZER]ChannelRPCHttpServer deleted.
+info|2023-07-24 15:38:57.483799|[INITIALIZER]JsonrpcHttpServer deleted.
+info|2023-07-24 15:38:57.483817|[INITIALIZER]RPCInitializer stopped
+info|2023-07-24 15:38:57.483857|[NETWORK][Host]Host exit
+info|2023-07-24 15:38:57.484432|[INITIALIZER]P2PInitializer stopped
+info|2023-07-24 15:38:57.484455|[LEDGER]stop sealer,groupID=1
+info|2023-07-24 15:38:57.484468|[LEDGER]sealer stopped. stop sync,groupID=1
+info|2023-07-24 15:38:57.484492|[g:1] [SYNC][id:ed047de6...]SyncMsgEngine stopped
+info|2023-07-24 15:38:57.484513|[GossipBlockStatus]GossipBlockStatus already stopped
+info|2023-07-24 15:38:57.484522|[SYNC][id:ed047de6...][g:1]SyncMaster stopped
+info|2023-07-24 15:38:57.484536|[LEDGER]sync stopped. stop event filter manager,groupID=1
+info|2023-07-24 15:38:57.484544|[LEDGER]event filter manager stopped. stop tx pool,groupID=1
+info|2023-07-24 15:38:57.484558|[LEDGER]removeNetworkStatHandlerByGroupID and removeGroupBandwidthLimiter for service,groupID=1
+info|2023-07-24 15:38:57.484580|[g:1][STORAGE][CachedStorage]Stopping flushStorage thread
+info|2023-07-24 15:38:58.318496|[g:1][STORAGE][CachedStorage]flushStorage thread stopped.
+info|2023-07-24 15:38:58.318553|[DBINITIALIZER] storage stopped
+info|2023-07-24 15:38:58.319697|[g:1] [SYNC][id:ed047de6...]SyncMsgEngine stopped
+info|2023-07-24 15:38:58.319777|[GossipBlockStatus]GossipBlockStatus already stopped
+info|2023-07-24 15:38:58.319790|[SYNC][id:ed047de6...][g:1]SyncMaster stopped
+info|2023-07-24 15:38:58.319826|[g:1] [SYNC][id:ed047de6...]SyncMsgEngine stopped

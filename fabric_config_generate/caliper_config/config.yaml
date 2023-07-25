@@ -1,4 +1,4 @@
-tps : &tps 3000
+tps : &tps 2000
 total : &total 10000
 
 test:
@@ -28,6 +28,17 @@ test:
             tps: *tps
         workload:
           module: caliper_config/get.js
+          arguments:
+            assets: 10
+            contractId: base
+      - label: init
+        txNumber: 1
+        rateControl: 
+          type: fixed-rate
+          opts:
+            tps: *tps
+        workload:
+          module: caliper_config/init.js
           arguments:
             assets: 10
             contractId: base
@@ -94,10 +105,10 @@ test:
       #       assets: 10
       #       contractId: base
 
-# monitors:
-#   resource:
-#   - module: docker
-#     options:
-#       interval: 5
-#       containers:
-#       - all
+monitors:
+  resource:
+  - module: docker
+    options:
+      interval: 5
+      containers:
+      - all

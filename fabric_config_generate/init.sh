@@ -1,4 +1,4 @@
-node_num=4
+node_num=64
 rm -rf fabric_${node_num}peer_network
 mkdir fabric_${node_num}peer_network
 cp -r bin fabric_${node_num}peer_network/bin
@@ -387,13 +387,18 @@ export CORE_PEER_TLS_CERT_FILE=/opt/gopath/src/github.com/hyperledger/fabric/pee
 export CORE_PEER_TLS_KEY_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org$i.aaa.com/peers/peer0.org$i.aaa.com/tls/server.key
 export CORE_PEER_TLS_ROOTCERT_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org$i.aaa.com/peers/peer0.org$i.aaa.com/tls/ca.crt
 export CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org$i.aaa.com/users/Admin@org$i.aaa.com/msp
-peer channel join -b app-channel.block
-peer channel update -o orderer.aaa.com:7050 -c app-channel -f ./channel-artifacts/Org${i}MSPanchors.tx --tls --cafile /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/aaa.com/orderers/orderer.aaa.com/msp/tlscacerts/tlsca.aaa.com-cert.pem
-"
+peer channel join -b app-channel.block"
 echo "$config" >> use_by_cli.sh
+config="peer channel update -o orderer.aaa.com:7050 -c app-channel -f ./channel-artifacts/Org${i}MSPanchors.tx --tls --cafile /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/aaa.com/orderers/orderer.aaa.com/msp/tlscacerts/tlsca.aaa.com-cert.pem
+sleep 3s"
+
+if (( i < 2  )); then
+echo "$config" >> use_by_cli.sh
+fi
 done
 
-config="cd /opt/gopath/src/github.com/chaincode/base_test
+config=" sleep 30s
+cd /opt/gopath/src/github.com/chaincode/base_test
 go env -w GOPROXY=https://goproxy.cn,direct
 go env -w GO111MODULE=on
 go mod vendor
@@ -422,7 +427,7 @@ export CORE_PEER_TLS_ROOTCERT_FILE=/opt/gopath/src/github.com/hyperledger/fabric
 export CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org$i.aaa.com/users/Admin@org$i.aaa.com/msp
 "
 echo "$config" >> use_by_cli.sh
-echo 'base_id=$( peer lifecycle chaincode queryinstalled  | grep -o 'base:[a-f0-9]\{64\}')'   >> use_by_cli.sh
+echo "base_id=\$( peer lifecycle chaincode queryinstalled  | grep -o 'base:[a-f0-9]\{64\}')"   >> use_by_cli.sh
 echo "peer lifecycle chaincode approveformyorg -o orderer.aaa.com:7050 --ordererTLSHostnameOverride orderer.aaa.com --channelID app-channel --name base --version 1.0 --package-id \$base_id --sequence 1 --tls --cafile /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/aaa.com/orderers/orderer.aaa.com/msp/tlscacerts/tlsca.aaa.com-cert.pem" >> use_by_cli.sh
 done
 echo "peer lifecycle chaincode checkcommitreadiness --channelID app-channel --name base --version 1.0  --sequence 1 --tls --cafile /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/aaa.com/orderers/orderer.aaa.com/msp/tlscacerts/tlsca.aaa.com-cert.pem --output json" >> use_by_cli.sh
@@ -442,3 +447,4 @@ do
     fi
     echo "$config" >> use_by_cli.sh
 done
+chmod 777 use_by_cli.sh

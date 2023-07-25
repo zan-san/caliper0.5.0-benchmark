@@ -1,4 +1,4 @@
-tps : &tps 3000
+tps : &tps 2000
 total : &total 10000
 
 test:
@@ -94,10 +94,10 @@ test:
       #       assets: 10
       #       contractId: base
 
-# monitors:
-#   resource:
-#   - module: docker
-#     options:
-#       interval: 5
-#       containers:
-#       - all
+monitors:
+  resource:
+  - module: docker
+    options:
+      interval: 5
+      containers:
+      - all

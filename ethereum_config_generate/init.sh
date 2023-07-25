@@ -1,4 +1,4 @@
-node_num=8
+node_num=64
 rm -rf ethereum_${node_num}peer_network
 mkdir ethereum_${node_num}peer_network
 cd ethereum_${node_num}peer_network

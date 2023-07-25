@@ -95,3 +95,10 @@ test:
     #   workload:
     #     module: benchmarks/regester.js
     #     arguments: *simple-args
+monitors:
+  resource:
+  - module: docker
+    options:
+      interval: 5
+      containers:
+      - all

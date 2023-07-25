@@ -1,4 +1,4 @@
-node_num=8
+node_num=64
 rm -rf fisco-bcos_${node_num}peer_network
 mkdir fisco-bcos_${node_num}peer_network
 cp build_chain.sh fisco-bcos_${node_num}peer_network/bulid_chain.sh
