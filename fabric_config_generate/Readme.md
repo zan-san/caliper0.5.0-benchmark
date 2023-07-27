@@ -1,34 +1,34 @@
-# fabric-4peer-1order deploy package
+# fabric network generate package
+follow this to generate a fabric test network
+## 1. write the network node number in `init.sh`
 
-## 1 config 
-workdir 
+init.sh look like this
 ```
- ~/caliper0.5.0-benchmark/fabric_4peer_network 
+node_num=64
+rm -rf fabric_${node_num}peer_network
+mkdir fabric_${node_num}peer_network
+cp -r bin fabric_${node_num}peer_network/bin
+cp -r caliper_config fabric_${node_num}peer_network/caliper_config
+.......
+.......
 ```
-execute command
+change the `node_num` to the network node number.  
+now it is 64,mean this network has 64 fabric nodes.
+
+## 2. run `init.sh` to generate network config file
 ```
+cd ~/caliper0.5.0-benchmark/fabric_config_generate
 ./init.sh
 ```
-result like 
+## 3.open the config dir and start network
+for example,now node number equal 64. `init.sh` will generate dir `fabric_64peer_network`.
 ```
-a@a-VirtualBox:~/caliper0.4.2-benchmark/fabric_4peer_network$ ./init.sh 
-org1.aaa.com
-org2.aaa.com
-org3.aaa.com
-org4.aaa.com
-2023-06-12 09:48:11.482 CST [common.tools.configtxgen] main -> INFO 001 Loading configuration
-2023-06-12 09:48:11.521 CST [common.tools.configtxgen.localconfig] completeInitialization -> INFO 002 orderer type: etcdraft
-........
-........
-2023-06-12 09:48:11.829 CST [common.tools.configtxgen] doOutputAnchorPeersUpdate -> INFO 004 Writing anchor peer update
-
-```
-## 2 deploy 
-execute command
-```
+cd fabric_64peer_network
 docker-compose up
 ```
-## 3 add order and peer join  channel and deploy chaincode
+run uper command to start network
+
+## 4.add order and peer join  channel and deploy chaincode
 
 open a new command line.  
 execute command
@@ -41,26 +41,20 @@ excute command
 ```
 ./use_by_cli.sh
 ```
-## 4 test by caliper0.5.0
-workdir 
+## 5.use caliper to test network
+change the node number **64** to your network node number !!
 ```
- ~/caliper0.5.0-benchmark
-```
-command
-binding fabric STU
-```
+cd ~/caliper0.5.0-benchmark
 npx caliper bind --caliper-bind-sut fabric:2.2
 
-```
-run caliper benchmark
-```
 npx caliper launch manager \
---caliper-workspace fabric_config_generate/fabric_32peer_network \
+--caliper-workspace fabric_config_generate/fabric_64peer_network \
 --caliper-benchconfig caliper_config/config.yaml \
 --caliper-networkconfig caliper_config/network.yaml \
 --caliper-fabric-gateway-enabled \
 --caliper-fabric-gateway-discovery \
 --caliper-flow-only-test 
 ```
-## 5 down 
-open report.html to check result
+## 6. see result
+
+
