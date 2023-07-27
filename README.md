@@ -1,6 +1,6 @@
 # caliper0.5.0-benchmark
-dp-chain,fabric,fisco-bcosとethよっつブロックチェーンをテストする。
-
+dp-chain,fabric,fisco-bcosとethよっつのブロックチェーンをテストする。
+dp-chain,fabric,fisco-bcos,eth test benchmark
 # ethereum
 [follow this](ethereum_config_generate/Readme.md)
 
