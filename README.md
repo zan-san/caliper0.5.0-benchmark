@@ -1,6 +1,8 @@
 # caliper0.5.0-benchmark
 dp-chain,fabric,fisco-bcosとethよっつのブロックチェーンをテストする。
-dp-chain,fabric,fisco-bcos,eth test benchmark
+dp-chain,fabric,fisco-bcos,eth test benchmark 
+
+docker-compose version must over 1.29
 # ethereum
 [follow this](ethereum_config_generate/Readme.md)
 
